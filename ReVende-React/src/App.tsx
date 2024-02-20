@@ -1,15 +1,17 @@
 import './App.css'
 import Footer from './components/footer/Footer'
 import NavBar from './components/navBar/NavBar'
-import Contact from './pages/Contact/Contact'
+import Home from './pages/Home/Home'
 
 function App() {
 
   return (
     <>
+    <div className='bg-lime-600 size-auto'>
       <NavBar/>
-      <Contact/>
+      <Home/>
       <Footer/>
+      </div>
     </>
   )
 }

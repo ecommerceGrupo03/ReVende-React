@@ -1,4 +1,5 @@
 import Categoria from '../models/Categoria';
+import Usuario from './Usuario';
 
 
 
@@ -11,6 +12,5 @@ export default interface Produto {
   foto: string;
   categoria: Categoria | null;
   usuario: Usuario | null;
-  
 
 }

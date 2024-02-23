@@ -28,8 +28,8 @@ function ContactCard({nome, sobre, imagem, linkedin, github}:ContactProps) {
             <hr className="border-gray-700 border-1 w-full" />
 
             <div className="flex justify-center gap-2 m-4">
-                <Link to={linkedin}><LinkedinLogo size={48} weight='bold' /></Link>
-                <Link to={github}><GithubLogo size={48} weight='bold' /></Link>
+                <Link to={linkedin}><LinkedinLogo size={48} weight='bold' className="hover:motion-safe:animate-bounce"/></Link>
+                <Link to={github}><GithubLogo size={48} weight='bold' className="hover:motion-safe:animate-bounce"/></Link>
             </div>
         </div>
     </div>

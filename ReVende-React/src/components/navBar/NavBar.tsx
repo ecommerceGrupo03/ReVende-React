@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
-import logoRevende from "../../assets/logoRevende-cropped.svg"
+import logoRevende from "../../assets/logoRevende.svg"
 
 function NavBar() {
   let navigate = useNavigate()

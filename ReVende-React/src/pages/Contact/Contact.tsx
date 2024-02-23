@@ -1,3 +1,5 @@
+import ContactCard from "../../components/contactCard/ContactCard"
+
 const Contact = () => {
   return (
     <>
@@ -6,74 +8,14 @@ const Contact = () => {
 
         <h3 className="text-4xl text-white">Entre em contato com os desenvolvedores do website:</h3>
 
-        <div className="justify-items-start text-2xl text-white">
-          <table>
-            <th>
-              <tr>
-                Eloísa
-              </tr>
-              <tr>
-
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                Fernando Lopes
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                Jaqueline Paula
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                Leo Duarte
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                Marina Pereira
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                Marília Tostes
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                Rafa
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-                
-              </tr>
-            </th>
-          </table>
+        <div className="justify-items-start text-2xl text-white my-12">
+          <ContactCard
+            nome="Fernando Lopes"
+            sobre="Desenvolvedor Java Full-Stack Júnior"
+            imagem="https://avatars.githubusercontent.com/u/118869201?v=4"
+            linkedin="https://www.linkedin.com/in/fernando-barbosa-ferreira-lopes/"
+            github="https://github.com/plasmus777"
+          />
         </div>
       </div>
     </>

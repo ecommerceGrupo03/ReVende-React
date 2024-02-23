@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import About from "../../pages/About/About"
 
 function NavBar() {
  
@@ -13,6 +12,7 @@ function NavBar() {
                 <Link to='/home' className='hover:underline'>Home</Link>
                 <Link to='/contact' className='hover:underline'>Contact</Link>
                 <Link to='/about' className='hover:underline'>About</Link>
+                <Link to='/login' className='hover:underline'>Login</Link>
                 <div className='hover:underline'>Produtos</div> 
                 <div className='hover:underline'>Categorias</div>
                 <div className='hover:underline'>Perfil</div>

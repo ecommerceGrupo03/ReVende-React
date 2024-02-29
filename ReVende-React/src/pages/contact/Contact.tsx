@@ -3,7 +3,7 @@ import ContactCard from "../../components/contactCard/ContactCard"
 const Contact = () => {
   return (
     <>
-      <div className="my-10 flex content-center bg-lime-600 flex-col items-center justify-center">
+      <div className="py-10 flex content-center bg-lime-600 flex-col items-center justify-center">
         <h1 className="text-8xl text-white mt-20">Contato</h1>
 
         <h3 className="text-4xl text-white mt-10 mb-40">Entre em contato com os desenvolvedores do website:</h3>

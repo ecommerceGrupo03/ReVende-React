@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ListaProduto from './components/produto/listaProduto/ListaProduto'
 import ListaCategoria from './components/categoria/listaCategoria/ListaCategoria'
 import FormularioCategoria from './components/categoria/formularioCategoria/FormularioCategoria'
+import FormularioProduto from './components/produto/formularioProduto/FormularioProduto'
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
                 <Route path="/categorias" element={<ListaCategoria />} />
                 <Route path="/formularioCategoria" element={<FormularioCategoria />} />
                 <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
+                <Route path="/formularioProduto" element={<FormularioProduto />} />
+                <Route path="/editarProduto/:id" element={<FormularioProduto />} />
           </Routes>
           </div>
           <Footer />

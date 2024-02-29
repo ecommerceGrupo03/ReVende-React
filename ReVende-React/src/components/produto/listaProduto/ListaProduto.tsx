@@ -5,6 +5,8 @@ import { buscar } from "../../../services/Service";
 import CardProduto from "../cardProduto/CardProduto";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { toastAlerta } from "../../../util/toastAlerta";
+import { Link } from "react-router-dom";
+import { Plus } from "@phosphor-icons/react";
 
 function ListaProduto() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -40,10 +42,12 @@ function ListaProduto() {
           <img src="" alt="" />
         </div>
       )}
-      <div className="container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="container mx-auto py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {produtos.map((produto) => (
           <CardProduto key={produto.id} produto={produto} />
         ))}
+
+        <Link to='/formularioProduto'><Plus size={100} weight='bold' color='lightgreen' className="border bg-green-600 hover:bg-green-800 flex items-center justify-center rounded-2xl" /></Link>
       </div>
     </>
   );

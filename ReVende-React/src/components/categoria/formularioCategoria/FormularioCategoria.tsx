@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Categoria from '../../../models/Categoria';
@@ -52,7 +52,7 @@ function FormularioCategoria() {
         toastAlerta('Categoria atualizado com sucesso', 'sucesso')
         retornar()
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         if (error.toString().includes('403')) {
           toastAlerta('O token expirou, favor logar novamente', 'info')
@@ -73,7 +73,7 @@ function FormularioCategoria() {
 
         toastAlerta('Categoria cadastrado com sucesso', 'sucesso')
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         if (error.toString().includes('403')) {
           toastAlerta('O token expirou, favor logar novamente', 'info')
@@ -106,24 +106,24 @@ function FormularioCategoria() {
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
-            <label htmlFor="nome">Nome da categoria</label>
-            <input
-                type="text"
-                placeholder="Nome"
-                name='nome'
-                className="border-2 border-slate-700 rounded p-2"
-                value={categoria.nome}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            />
-            <label htmlFor="descricao">Descrição do categoria</label>
-            <input
-                type="text"
-                placeholder="Descrição"
-                name='descricao'
-                className="border-2 border-slate-700 rounded p-2"
-                value={categoria.descricao}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            />
+          <label htmlFor="nome">Nome da categoria</label>
+          <input
+            type="text"
+            placeholder="Nome"
+            name='nome'
+            className="border-2 border-slate-700 rounded p-2"
+            value={categoria.nome}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+          />
+          <label htmlFor="descricao">Descrição do categoria</label>
+          <input
+            type="text"
+            placeholder="Descrição"
+            name='descricao'
+            className="border-2 border-slate-700 rounded p-2"
+            value={categoria.descricao}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+          />
         </div>
         <button
           className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
@@ -131,6 +131,8 @@ function FormularioCategoria() {
         >
           {id === undefined ? 'Cadastrar' : 'Editar'}
         </button>
+
+        <button className="rounded text-white-100 bg-yellow-400 hover:bg-yellow-800 w-1/4 py-2 mx-auto block mt-4" onClick={retornar}>Voltar</button>
       </form>
     </div>
   );

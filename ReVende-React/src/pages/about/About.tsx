@@ -1,7 +1,7 @@
 const About = () => {
   return (
     <>
-      <div className="my-10 flex content-center bg-lime-600 flex-col items-center justify-center">
+      <div className="py-10 flex content-center bg-lime-600 flex-col items-center justify-center">
         <h1 className="text-8xl text-white mt-20">Sobre o Projeto</h1>
 
         <p className="text-4xl text-white mt-16 mx-16">Este projeto é um E-commerce de produtos usados ou sem uso, tendo como inspiração o Objetivo de Desenvolvimento Sustentável (ODS) número 12 da ONU- Consumo e Produção Sustentáveis.</p>

@@ -32,15 +32,17 @@ function NavBar() {
 						<Link to="/about" className="hover:underline">
 							Sobre
 						</Link>
-						<Link to="/login" className="hover:underline">
-							Login
-						</Link>
+						{(usuario == null || usuario.id == 0) &&
+							<Link to="/login" className="hover:underline">Login</Link>
+						}
 						<Link to="/produtos" className="hover:underline cursor-pointer">Produtos</Link>
 						<Link to="/categorias" className="hover:underline cursor-pointer">Categorias</Link>
-						<div className="hover:underline cursor-pointer">Perfil</div>
-						<Link to="" onClick={logout} className="hover:underline">
-							Sair
-						</Link>
+						{(usuario != null && usuario.id != 0) &&
+						<>
+							<div className="hover:underline cursor-pointer">Perfil</div>
+							<Link to="" onClick={logout} className="hover:underline">Sair</Link>
+						</>
+						}
 					</div>
 				</div>
 			</div>

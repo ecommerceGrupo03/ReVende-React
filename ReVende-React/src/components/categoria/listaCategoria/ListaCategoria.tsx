@@ -4,12 +4,12 @@ import Categoria from "../../../models/Categoria";
 import { buscar } from "../../../services/Service";
 import { toastAlerta } from "../../../util/toastAlerta";
 import CardCategorias from "../cardCategoria/CardCategoria";
+import { Link } from "react-router-dom";
+import { Plus } from "@phosphor-icons/react";
 
     function ListaCategoria() {
         const [categorias, setCategorias] = useState<Categoria[]>([]);
-      
-        
-      
+
         const { usuario, handleLogout } = useContext(AuthContext);
         const token = usuario.token;
       
@@ -45,9 +45,10 @@ import CardCategorias from "../cardCategoria/CardCategoria";
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {categorias.map((categoria) => (
                       <>
-                        <CardCategorias key={categoria.idCategoria} categoria={categoria} />
+                        <CardCategorias key={categoria.id} categoria={categoria} />
                       </>
                     ))}
+                    <Link to='/formularioCategoria'><Plus size={100} weight='bold' color='lightgreen' className="border bg-green-600 hover:bg-green-800 flex items-center justify-center rounded-2xl" /></Link>
                   </div>
                 </div>
               </div>

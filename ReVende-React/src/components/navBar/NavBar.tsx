@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import logoRevende from '../../assets/logoRevende.svg';
 
 function NavBar() {
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const { usuario, handleLogout } = useContext(AuthContext);
 
@@ -35,8 +35,8 @@ function NavBar() {
 						<Link to="/login" className="hover:underline">
 							Login
 						</Link>
-						<div className="hover:underline cursor-pointer">Produtos</div>
-						<div className="hover:underline cursor-pointer">Categorias</div>
+						<Link to="/produtos" className="hover:underline cursor-pointer">Produtos</Link>
+						<Link to="/categorias" className="hover:underline cursor-pointer">Categorias</Link>
 						<div className="hover:underline cursor-pointer">Perfil</div>
 						<Link to="" onClick={logout} className="hover:underline">
 							Sair

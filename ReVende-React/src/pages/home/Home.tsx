@@ -1,3 +1,5 @@
+import ListaProduto from "../../components/produto/listaProduto/ListaProduto"
+
 const Home = () => {
   return (
     <>
@@ -6,8 +8,9 @@ const Home = () => {
 
       <h3 className="text-4xl text-white">Bem Vindo ao ReVende!</h3>
       </div>
-      </>
 
+      <ListaProduto/>
+</>
   )
 }
 

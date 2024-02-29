@@ -101,7 +101,7 @@ function FormularioCategoria() {
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
       <h1 className="text-4xl text-center my-8">
-        {id === undefined ? 'Cadastre um novo categoria' : 'Editar categoria'}
+        {id === undefined ? 'Cadastre uma nova categoria' : 'Editar categoria'}
       </h1>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
@@ -115,7 +115,7 @@ function FormularioCategoria() {
             value={categoria.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
-          <label htmlFor="descricao">Descrição do categoria</label>
+          <label htmlFor="descricao">Descrição da categoria</label>
           <input
             type="text"
             placeholder="Descrição"

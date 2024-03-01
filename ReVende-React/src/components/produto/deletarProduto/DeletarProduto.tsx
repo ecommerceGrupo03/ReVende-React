@@ -55,7 +55,7 @@ function DeletarProduto() {
 				},
 			});
 
-			toastAlerta('Produto apagada com sucesso', 'sucesso');
+			toastAlerta('Produto apagado com sucesso', 'sucesso');
 		} catch (error) {
 			toastAlerta('Erro ao apagar o Produto', 'erro');
 		}

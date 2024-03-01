@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { buscar, atualizar, cadastrar } from '../../../services/Service';
+import { buscar, buscarAtravesId, atualizar, cadastrar } from '../../../services/Service';
 import { toastAlerta } from '../../../util/toastAlerta';
 import Categoria from '../../../models/Categoria';
 import Produto from '../../../models/Produto';
@@ -35,7 +35,7 @@ function FormularioProduto() {
   });
 
   async function buscarProdutoPorId(id: string) {
-    await buscar(`/produtos/${id}`, setProduto, {
+    await buscarAtravesId(`/produtos/${id}`, setProduto, {
       headers: {
         Authorization: token,
       },
@@ -43,7 +43,7 @@ function FormularioProduto() {
   }
 
   async function buscarCategoriaPorId(id: string) {
-    await buscar(`/categorias/${id}`, setCategoria, {
+    await buscarAtravesId(`/categorias/${id}`, setCategoria, {
       headers: {
         Authorization: token,
       },
@@ -51,11 +51,7 @@ function FormularioProduto() {
   }
 
   async function buscarCategorias() {
-    await buscar('/categorias/listar', setCategorias, {
-      headers: {
-        Authorization: token,
-      }
-    });
+    await buscar('/categorias/listar', setCategorias);
   }
 
   useEffect(() => {

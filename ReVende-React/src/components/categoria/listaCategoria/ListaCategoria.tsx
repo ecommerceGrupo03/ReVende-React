@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
-import { buscar } from "../../../services/Service";
+import { buscar, buscarAtravesId} from "../../../services/Service";
 import { toastAlerta } from "../../../util/toastAlerta";
 import CardCategorias from "../cardCategoria/CardCategoria";
 import { Link } from "react-router-dom";
@@ -15,9 +15,7 @@ import { Plus } from "@phosphor-icons/react";
       
         async function buscarCategorias() {
           try {
-            await buscar("/categorias/listar", setCategorias, {
-              headers: { Authorization: token },
-            });
+            await buscar("/categorias/listar", setCategorias);
       
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } catch (error: any) {

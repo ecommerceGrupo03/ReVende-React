@@ -4,7 +4,6 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Categoria from '../../../models/Categoria';
 import {
 	atualizar,
-	buscar,
 	buscarAtravesId,
 	cadastrar,
 } from '../../../services/Service';

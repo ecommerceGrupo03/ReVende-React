@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Produto from '../../../models/Produto';
-import { buscar, buscarAtravesId, deletar } from '../../../services/Service';
+import { buscarAtravesId, deletar } from '../../../services/Service';
 import { toastAlerta } from '../../../util/toastAlerta';
 
 function DeletarProduto() {

@@ -1,19 +1,41 @@
-import { GithubLogo } from '@phosphor-icons/react';
+import { FacebookLogo, GithubLogo, InstagramLogo, TwitterLogo } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 function Footer() {
 	return (
 		<>
-			<div className="flex justify-center bg-[#308C50] text-white">
-				<div className="container flex flex-col items-center py-4">
-					<p className="text-xl font-bold">ReVende | 2024</p>
-					<p className="text-lg">Acesse os arquivos do projeto:</p>
-					<div className="flex gap-2">
-						<Link target="_blank" to="https://github.com/ecommerceGrupo03">
-							<GithubLogo size={48} weight="bold" />
+			<section className="bg-[#1C3240]">
+				<div className="max-w-screen-xl px-4 py-6 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+					<nav className="flex flex-wrap justify-center -mx-5 -my-2">
+						<Link to="/about" className="px-5 py-2">
+							<div className="text-base leading-6 text-[#F2F2F2] hover:text-gray-400">
+								Sobre
+							</div>
+						</Link>
+						<Link to="/contact" className="px-5 py-2">
+							<div className="text-base leading-6 text-[#F2F2F2] hover:text-gray-400">
+								Contato
+							</div>
+						</Link>
+					</nav>
+					<div className="flex justify-center mt-8 space-x-6">
+						<Link to="https://github.com/ecommerceGrupo03" className="text-[#F2F2F2] hover:text-gray-400">
+							<FacebookLogo size={26} weight="bold" />
+						</Link>
+						<Link to="https://github.com/ecommerceGrupo03" className="text-[#F2F2F2] hover:text-gray-400">
+							<InstagramLogo size={26} weight="bold" />
+						</Link>
+						<Link to="https://github.com/ecommerceGrupo03" className="text-[#F2F2F2] hover:text-gray-400">
+							<TwitterLogo size={26} weight="bold" />
+						</Link>
+						<Link to="https://github.com/ecommerceGrupo03" className="text-[#F2F2F2] hover:text-gray-400">
+							<GithubLogo size={26} weight="bold" />
 						</Link>
 					</div>
+					<p className="mt-8 text-base leading-6 text-center text-gray-400">
+						© ReVende | 2024 - Todos os direitos reservados
+					</p>
 				</div>
-			</div>
+			</section>
 		</>
 	);
 }

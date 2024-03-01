@@ -54,7 +54,7 @@ function FormularioCategoria() {
 					},
 				});
 
-				toastAlerta('Categoria atualizado com sucesso', 'sucesso');
+				toastAlerta('Categoria atualizada com sucesso', 'sucesso');
 				retornar();
 
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -63,7 +63,7 @@ function FormularioCategoria() {
 					toastAlerta('O token expirou, favor logar novamente', 'info');
 					handleLogout();
 				} else {
-					toastAlerta('Erro ao atualizar o Categoria', 'erro');
+					toastAlerta('Erro ao atualizar a Categoria', 'erro');
 				}
 			}
 		} else {
@@ -74,7 +74,7 @@ function FormularioCategoria() {
 					},
 				});
 
-				toastAlerta('Categoria cadastrado com sucesso', 'sucesso');
+				toastAlerta('Categoria cadastrada com sucesso', 'sucesso');
 
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			} catch (error: any) {
@@ -82,7 +82,7 @@ function FormularioCategoria() {
 					toastAlerta('O token expirou, favor logar novamente', 'info');
 					handleLogout();
 				} else {
-					toastAlerta('Erro ao cadastrado o Categoria', 'erro');
+					toastAlerta('Erro ao cadastrar a Categoria', 'erro');
 				}
 			}
 		}

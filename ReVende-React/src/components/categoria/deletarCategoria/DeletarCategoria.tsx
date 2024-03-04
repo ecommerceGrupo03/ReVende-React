@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Categoria from '../../../models/Categoria';
 import { buscar, buscarAtravesId, deletar } from '../../../services/Service';
 import { toastAlerta } from '../../../util/toastAlerta';
+import { Image } from '@phosphor-icons/react';
 
 function DeletarCategoria() {
 	const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -64,19 +65,24 @@ function DeletarCategoria() {
 	}
 	return (
 		<div className="container w-1/3 mx-auto">
-			<h1 className="text-4xl text-center my-4">Deletar categoria</h1>
+			
+			
 
-			<p className="text-center font-semibold">
+			<p className="text-center font-semibold pb-6 pt-10">
 				Você tem certeza de que deseja apagar a categoria a seguir?
 			</p>
 
-			<header className="mt-5 py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
+			<div className="box-shadow: 0 1px 2px 0  justify-center  flex align-center  bg-white box-shadow: 0 1px 2px 0 ">
+				<Image size={100} color="#8e3333 " />
+			</div>
+
+			<header className="pt-6 pl-6  text-sm text-gray-600 bg-white">
 				{categoria.nome}
 			</header>
-			<p className="p-8 text-3xl bg-slate-200 h-full">{categoria.descricao}</p>
+			<p className="pl-6 pb-6 text-base font-semibold text-gray-900 bg-white">{categoria.descricao}</p>
 			<div className="flex p-5">
 				<button
-					className="text-slate-900 bg-slate-300 hover:bg-slate-400 w-full py-2 font-bold"
+					className="text-white bg-blue-500 hover:bg-blue-600  w-full py-2 font-bold"
 					onClick={retornar}
 				>
 					Não

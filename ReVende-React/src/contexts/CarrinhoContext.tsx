@@ -43,8 +43,8 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 			toastAlerta('Um novo produto foi adicionado ao carrinho.', 'sucesso');
 		}
 
-		updateValorTotal();
 		setProdutos(lista_nova);
+		updateValorTotal();
 	}
 
 	function removerProduto(id:number){

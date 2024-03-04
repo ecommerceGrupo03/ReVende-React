@@ -3,28 +3,33 @@ import { Link } from 'react-router-dom';
 
 export interface ContactProps {
 	nome: string;
+	cargo: string;
 	sobre: string;
 	imagem: string;
 	linkedin: string;
 	github: string;
 }
 
-function ContactCard({ nome, sobre, imagem, linkedin, github }: ContactProps) {
+function ContactCard({ nome, cargo, sobre, imagem, linkedin, github }: ContactProps) {
 	return (
-		<div className="flex justify-center grid-cols-3 bg-gradient-to-r from-gray-900 to-gray-700 border-2 border-gray-700 rounded-lg items-stretch my-10">
-			<div className="flex items-center m-12">
+		<div className="flex justify-center grid-cols-3 bg-gradient-to-l from-[#568C6D] to-[#B5C8BD] shadow-xl rounded-3xl items-center mb-10 container h-96 w-[1300px] gap-24">
+			<div className="flex">
 				<img src={imagem} alt={nome} className="rounded-full size-64" />
 			</div>
 
-			<div className="m-8">
+			<div className="align-center">
 				<div className="flex-col justify-center">
-					<h4 className="text-6xl flex justify-center my-4 mx-4 text-wrap max-w-xl">
+					<h4 className="text-3xl flex justify-center my-4 mx-4 text-wrap max-w-xl">
 						{nome}
 					</h4>
 
 					<hr className="border-gray-700 border-2 w-full" />
 
-					<h5 className="text-3xl flex justify-center my-4 mx-4 text-wrap max-w-xl">
+					<h5 className="text-lg flex justify-center my-4 mx-4 text-wrap max-w-xl">
+						{cargo}
+					</h5>
+
+					<h5 className="text-lg flex justify-center my-4 mx-4 text-wrap max-w-xl">
 						{sobre}
 					</h5>
 				</div>
@@ -34,15 +39,15 @@ function ContactCard({ nome, sobre, imagem, linkedin, github }: ContactProps) {
 				<div className="flex justify-center gap-2 m-4">
 					<Link target="_blank" to={linkedin}>
 						<LinkedinLogo
-							size={48}
-							weight="bold"
+							size={40}
+							weight="regular"
 							className="hover:motion-safe:animate-bounce"
 						/>
 					</Link>
 					<Link target="_blank" to={github}>
 						<GithubLogo
-							size={48}
-							weight="bold"
+							size={40}
+							weight="regular"
 							className="hover:motion-safe:animate-bounce"
 						/>
 					</Link>

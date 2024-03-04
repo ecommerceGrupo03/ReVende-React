@@ -76,18 +76,18 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 	async function updateValorTotal(){
 		if(produtos.length > 0 && produtos != null){
 			try {
-				const[valorAtual, setValorAtual] = useState<number>();
-				setValorAtual(0);
+				const[precoAtual, setPrecoAtual] = useState<number>();
+				setPrecoAtual(0);
 
-				if(valorTotal != null && valorAtual != null){
+				if(valorTotal != null && precoAtual != null){
 					produtos.forEach(
 						async (produto) => {
-							await buscarAtravesId(`/produtos/${produto.id}`, setValorAtual, {
+							await buscarAtravesId(`/produtos/${produto.id}`, setPrecoAtual, {
 								headers: {
 									Authorization: token,
 								},
 							});
-							setValorTotal(valorTotal + valorAtual);
+							setValorTotal(valorTotal + precoAtual*produto.quantidade);
 						}
 					);
 				}

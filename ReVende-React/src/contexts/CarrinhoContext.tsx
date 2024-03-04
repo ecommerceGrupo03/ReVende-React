@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 import { toastAlerta } from "../util/toastAlerta";
 import ProdutoCarrinho from "../models/ProdutoCarrinho";
 import { buscarAtravesId } from "../services/Service";

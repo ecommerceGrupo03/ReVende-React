@@ -17,6 +17,7 @@ import FormularioProduto from './components/produto/formularioProduto/Formulario
 import DeletarProduto from './components/produto/deletarProduto/DeletarProduto';
 import DeletarCategoria from './components/categoria/deletarCategoria/DeletarCategoria';
 import Perfil from './pages/perfil/Perfil';
+import { CarrinhoProvider } from './contexts/CarrinhoContext';
 
 function App() {
 	return (
@@ -24,29 +25,31 @@ function App() {
 			<AuthProvider>
 				<ToastContainer />
 				<BrowserRouter>
-					<NavBar />
-					<div className="bg-[#F2F2F2] size-auto">
-						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/contact" element={<Contact />} />
-							<Route path="/about" element={<About />} />
-							<Route path="/home" element={<Home />} />
-							<Route path="/cadastro" element={<Cadastro />} />
-							<Route path="/login" element={<Login />} />
-							<Route path="/produtos" element={<ListaProduto />} />
-							<Route path="/categorias" element={<ListaCategoria />} />
-							<Route path="/perfil" element={<Perfil />} />
+					<CarrinhoProvider>
+						<NavBar />
+						<div className="bg-[#F2F2F2] size-auto">
+							<Routes>
+								<Route path="/" element={<Home />} />
+								<Route path="/contact" element={<Contact />} />
+								<Route path="/about" element={<About />} />
+								<Route path="/home" element={<Home />} />
+								<Route path="/cadastro" element={<Cadastro />} />
+								<Route path="/login" element={<Login />} />
+								<Route path="/produtos" element={<ListaProduto />} />
+								<Route path="/categorias" element={<ListaCategoria />} />
+								<Route path="/perfil" element={<Perfil />} />
 
-							<Route path="/formularioCategoria" element={<FormularioCategoria />}/>
-							<Route path="/editarCategoria/:id" element={<FormularioCategoria />}/>
-							<Route path="/deletarCategoria/:id" element={<DeletarCategoria />}/>
+								<Route path="/formularioCategoria" element={<FormularioCategoria />} />
+								<Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
+								<Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
 
-							<Route path="/formularioProduto" element={<FormularioProduto />}/>
-							<Route path="/editarProduto/:id" element={<FormularioProduto />}/>
-							<Route path="/deletarProduto/:id" element={<DeletarProduto />} />
-						</Routes>
-					</div>
-					<Footer />
+								<Route path="/formularioProduto" element={<FormularioProduto />} />
+								<Route path="/editarProduto/:id" element={<FormularioProduto />} />
+								<Route path="/deletarProduto/:id" element={<DeletarProduto />} />
+							</Routes>
+						</div>
+						<Footer />
+					</CarrinhoProvider>
 				</BrowserRouter>
 			</AuthProvider>
 		</>

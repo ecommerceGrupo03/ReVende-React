@@ -109,7 +109,13 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 	function carrinhoVazio(){
 		let vazio = true;
 
-		
+		if(produtos.length > 0 && produtos != null){
+			produtos.forEach((produto) => {
+				if(produto.quantidade > 0){
+					vazio = false;
+				}
+			});
+		}
 
 		return vazio;
 	}

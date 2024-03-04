@@ -14,7 +14,9 @@ const About = () => {
                 sustentando o futuro
               </h2>
               <p className="text-base text-gray-700 md:text-lg">
-                Este projeto é um E-commerce de produtos usados ou sem uso, tendo como inspiração o Objetivo de Desenvolvimento Sustentável (ODS) número 12 da ONU- Consumo e Produção Sustentáveis.
+              Nossa missão é contribuir para o desenvolvimento sustentável global, alinhando nossas operações com o Objetivo 12 da ODS - ONU. 
+              Através do nosso e-commerce, buscamos promover práticas comerciais responsáveis e conscientizar nossos clientes sobre a importância da sustentabilidade em suas escolhas de compra, troca e reutilização de insumos.
+              Ao escolher ReVende, você está apoiando não apenas uma experiência de compra conveniente, mas também um futuro mais sustentável para o nosso planeta e para as gerações futuras. 
               </p>
             </div>
           </div>

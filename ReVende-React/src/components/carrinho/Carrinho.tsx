@@ -19,7 +19,7 @@ function Carrinho() {
 
   const [produtoAtual, setProdutoAtual] = useState<Produto>();
 
-  const ctx= useContext(CarrinhoContext);
+  const ctx = useContext(CarrinhoContext);
 
   async function buscarProdutoPorId(id: number) {
 		await buscarAtravesId(`/produtos/${id}`, setProdutoAtual, {
@@ -39,6 +39,8 @@ function Carrinho() {
   function listaProduto(produto:ProdutoCarrinho){
     buscarProdutoPorId(produto.id);
 
+    ctx.updateValorTotal();
+    
     return (
       <li key={produto.id} className="flex py-6">
         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">

@@ -22,6 +22,8 @@ export const CarrinhoContext = createContext({} as CarrinhoContextProps);
 
 export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 
+	const [precoAtual, setPrecoAtual] = useState<number>();
+
 	const [produtos, setProdutos] = useState<ProdutoCarrinho[]>([]);
 	const [valorTotal, setValorTotal] = useState<number>();
 
@@ -75,15 +77,14 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 	}
 
 	async function updateValorTotal(){
-		if(produtos.length > 0 && produtos != null){
+		if(produtos != null){
 			try {
-				const[precoAtual, setPrecoAtual] = useState<number>();
 				setPrecoAtual(0);
 
 				if(valorTotal != null && precoAtual != null){
 					produtos.forEach(
-						async (produto) => {
-							await buscarAtravesId(`/produtos/${produto.id}`, setPrecoAtual, {
+						(produto) => {
+							buscarAtravesId(`/produtos/${produto.id}`, setPrecoAtual, {
 								headers: {
 									Authorization: token,
 								},
@@ -99,6 +100,7 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 					handleLogout();
 				} else {
 					toastAlerta('Ocorreu um erro ao obter o valor total do carrinho.', 'erro');
+					console.log(error);
 				}
 			}
 		} else{

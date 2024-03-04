@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
 import Produto from "../../../models/Produto";
 import { Pencil, ShoppingCart, Trash } from "@phosphor-icons/react";
+import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 interface CardProdutoProps {
   produto: Produto;
 }
 
 function CardProduto({ produto }: CardProdutoProps) {
+  const ctx = useContext(CarrinhoContext);
+
+  const { usuario } = useContext(AuthContext);
+
   return (
     <div className="border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center">
       <div key={produto.id} className="group relative">
@@ -36,30 +43,33 @@ function CardProduto({ produto }: CardProdutoProps) {
       </div>
 
       <div className="flex">
-        <Link
-          to={`/editarProduto/${produto.id}`}
-          className="w-full text-slate-100 bg-blue-500 hover:bg-blue-600 flex items-center justify-center py-2 gap-2"
-        >
-           <Pencil size={15} /> Editar
-        </Link>
+        {(produto.usuario?.cnpj == usuario.cnpj) &&
+          <Link
+            to={`/editarProduto/${produto.id}`}
+            className="w-full text-slate-100 bg-blue-500 hover:bg-blue-600 flex items-center justify-center py-2 gap-2"
+          >
+            <Pencil size={15} /> Editar
+          </Link>
+        }
 
-        <Link
-          to={`/deletarProduto/${produto.id}`}
-          className="text-slate-100 bg-red-600 hover:bg-red-700 w-full flex items-center justify-center gap-2"
-        > 
+        {(produto.usuario?.cnpj == usuario.cnpj) &&
+          <Link
+            to={`/deletarProduto/${produto.id}`}
+            className="text-slate-100 bg-red-600 hover:bg-red-700 w-full flex items-center justify-center gap-2"
+          >
             {" "}
             <Trash size={15} /> Deletar{" "}
-        </Link>
-        
+          </Link>
+        }
       </div>
 
       <Link
-          to={`/deletarProduto/${produto.id}`}
-          className="text-slate-100 bg-green-500 hover:bg-green-600 w-full flex items-center justify-center gap-2 py-2"
-        > 
-            {" "}
-            <ShoppingCart size={15} /> Adicionar ao Carrinho{" "}
-        </Link>
+        to='' onClick={() => ctx.adicionarProduto(produto.id)}
+        className="text-slate-100 bg-green-500 hover:bg-green-600 w-full flex items-center justify-center gap-2 py-2"
+      >
+        {" "}
+        <ShoppingCart size={15} /> Adicionar ao Carrinho{" "}
+      </Link>
     </div>
   );
 }

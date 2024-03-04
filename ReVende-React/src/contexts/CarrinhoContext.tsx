@@ -37,14 +37,13 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 
 		if(!novoProduto){
 			lista_nova.push({id:id, quantidade:1})
-			updateValorTotal();
 			toastAlerta('Um novo produto foi adicionado ao carrinho.', 'sucesso');
 		} else {
 			novoProduto.quantidade = novoProduto.quantidade + 1;
-			updateValorTotal();
 			toastAlerta('Um novo produto foi adicionado ao carrinho.', 'sucesso');
 		}
 
+		updateValorTotal();
 		setProdutos(lista_nova);
 	}
 
@@ -56,13 +55,13 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 		if(novoProduto == null){
 			toastAlerta('Ocorreu um erro ao processar o carrinho.', 'erro');
 		} else {
-			if(novoProduto.quantidade > 1){
+			if(novoProduto && novoProduto.quantidade > 1){
 				novoProduto.quantidade = novoProduto.quantidade - 1;
 				setProdutos(lista_nova);
 				updateValorTotal();
 				toastAlerta('Um produto foi removido do carrinho.', 'sucesso');
 			} else {
-				const lista_filtrada = lista_nova.filter((produto) => produto.id = id);
+				const lista_filtrada = lista_nova.filter((produto) => produto.id != id);
 				setProdutos(lista_filtrada);
 				updateValorTotal();
 				toastAlerta('Um produto foi removido do carrinho.', 'sucesso');

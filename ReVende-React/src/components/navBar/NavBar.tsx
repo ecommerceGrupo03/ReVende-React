@@ -98,22 +98,21 @@ function NavBar() {
                   )}
                 </Link>
                 {/* <!-- Perfil     --> */}
-
-                {usuario.id !== 0 ? (
-                  <Link
-                    to="/perfil"
-                    className="flex items-center hover:text-gray-600"
-                  >
-                    <UserCircle size={26} color="#1C3240" weight="bold" />
-                  </Link>
-                ) : (
+                {/* {usuario.id !== 0 ? ( */}
+                <Link
+                  to={usuario.id !== 0 ? "/perfil" : "/login"}
+                  className="flex items-center hover:text-gray-600"
+                >
+                  <UserCircle size={26} color="#1C3240" weight="bold" />
+                </Link>
+                {/* ) : (
                   <Link
                     to="/login"
                     className="flex items-center hover:text-gray-600"
                   >
                     <SignIn size={26} color="#1C3240" weight="bold" />
                   </Link>
-                )}
+                )} */}
 
                 {usuario.id !== 0 && (
                   <Link to="" onClick={logout} className="hover:text-gray-600">

@@ -46,7 +46,9 @@ import { Plus } from "@phosphor-icons/react";
                         <CardCategorias key={categoria.id} categoria={categoria} />
                       </>
                     ))}
-                    <Link to='/formularioCategoria'><Plus size={100} weight='bold' color='lightgreen' className="border bg-green-600 hover:bg-green-800 flex items-center justify-center rounded-2xl" /></Link>
+                    {(usuario.email == 'root@root.com') &&
+                      <Link to='/formularioCategoria'><Plus size={100} weight='bold' color='lightgreen' className="border bg-green-600 hover:bg-green-800 flex items-center justify-center rounded-2xl" /></Link>
+                    }
                   </div>
                 </div>
               </div>

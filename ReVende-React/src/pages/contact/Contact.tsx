@@ -50,7 +50,7 @@ const Contact = () => {
 					<ContactCard
 						nome="Marina Pereira"
 						cargo="Desenvolvedora Java Full-Stack Júnior"
-						sobre="Olá, meu nome é Jaqueline e tenho 25 anos. Sou graduada em Gestão Ambiental, com recebimento de duas Láureas Acadêmicas. Estou em transição de carreira para Desenvolvedora Full Stack Java Jr. e estou realizando técnico em Desenvolvimento de Sistemas na ETEC.  Já desenvolvi um Projeto de Blog Pessoal Individual e o Revende"
+						sobre="Sou a Marina Pereira e tenho formação em Gestão de Negócios e Inovação e Gestão Financeira pela Fatec Sebrae. Trabalhei na área de políticas públicas de inovação e estou em transição de carreira para Desenvolvedora Full Stack Java React Jr. Como principais projetos, elaborei Blog Pessoal e projeto ReVende como conclusão do Bootcamp da Generation."
 						imagem="https://avatars.githubusercontent.com/u/146123948?s=60&v=4"
 						linkedin="https://www.linkedin.com/in/marina-alexandre-pereira/"
 						github="https://github.com/marina-mmap"

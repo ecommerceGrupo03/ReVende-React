@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
     "@phosphor-icons/react": "^2.0.15",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.7",

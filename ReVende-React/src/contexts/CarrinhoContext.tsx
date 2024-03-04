@@ -11,6 +11,7 @@ interface CarrinhoContextProps {
 	removerProduto(id:number): void;
 	limparCarrinho(): void;
 	updateValorTotal(): void;
+	carrinhoVazio(): boolean;
 }
 
 interface CarrinhoProviderProps {
@@ -105,8 +106,16 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 		}
 	}
 	
+	function carrinhoVazio(){
+		let vazio = true;
+
+		
+
+		return vazio;
+	}
+
 	return (
-		<CarrinhoContext.Provider value={{produtos, valorTotal, removerProduto, adicionarProduto, updateValorTotal, limparCarrinho}}>
+		<CarrinhoContext.Provider value={{produtos, valorTotal, removerProduto, adicionarProduto, updateValorTotal, limparCarrinho, carrinhoVazio}}>
 			{children}
 		</CarrinhoContext.Provider>
 	);

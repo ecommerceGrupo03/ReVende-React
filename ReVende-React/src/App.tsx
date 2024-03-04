@@ -35,28 +35,15 @@ function App() {
 							<Route path="/login" element={<Login />} />
 							<Route path="/produtos" element={<ListaProduto />} />
 							<Route path="/categorias" element={<ListaCategoria />} />
-							<Route
-								path="/formularioCategoria"
-								element={<FormularioCategoria />}
-							/>
-							<Route
-								path="/editarCategoria/:id"
-								element={<FormularioCategoria />}
-							/>
-							<Route
-								path="/formularioProduto"
-								element={<FormularioProduto />}
-							/>
-							<Route
-								path="/editarProduto/:id"
-								element={<FormularioProduto />}
-							/>
-							<Route path="/deletarProduto/:id" element={<DeletarProduto />} />
-							<Route
-								path="/deletarCategoria/:id"
-								element={<DeletarCategoria />}
-							/>
 							<Route path="/perfil" element={<Perfil />} />
+
+							<Route path="/formularioCategoria" element={<FormularioCategoria />}/>
+							<Route path="/editarCategoria/:id" element={<FormularioCategoria />}/>
+							<Route path="/deletarCategoria/:id" element={<DeletarCategoria />}/>
+
+							<Route path="/formularioProduto" element={<FormularioProduto />}/>
+							<Route path="/editarProduto/:id" element={<FormularioProduto />}/>
+							<Route path="/deletarProduto/:id" element={<DeletarProduto />} />
 						</Routes>
 					</div>
 					<Footer />

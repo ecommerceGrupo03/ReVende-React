@@ -4,7 +4,7 @@ const Contact = () => {
 	return (
 		<>
 			<div className="py-16 flex content-center bg-[#F2F2F2] flex-col items-center justify-center">
-				<h1 className="text-6xl text-[#1C3240]">Contato</h1>
+				{/* <h1 className="text-6xl text-[#1C3240]">Contato</h1> */}
 
 				<h3 className="text-2xl text-[#1C3240] mt-10 mb-20">
 					Entre em contato com os desenvolvedores do website:

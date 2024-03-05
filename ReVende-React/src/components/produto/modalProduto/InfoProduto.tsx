@@ -15,22 +15,12 @@ function InfoProduto() {
 
     const { id } = useParams<{ id: string }>();
 
-    // const { usuario, handleLogout } = useContext(AuthContext);
-    // const token = usuario.token;
+    const { usuario, handleLogout } = useContext(AuthContext);
+    const token = usuario.token;
 
     const ctx = useContext(CarrinhoContext);
 
     async function buscarPorId(id: string) {
-<<<<<<< HEAD
-        // try {
-            await buscar(`/produtos/${id}`, setProduto);
-        // } catch (error: any) {
-        //     if (error.toString().includes('403')) {
-        //         toastAlerta('O token expirou, favor logar novamente', 'info');
-        //         handleLogout();
-        //     }
-        // }
-=======
         try {
             await buscarAtravesId(`/produtos/${id}`, setProduto, {
                 headers: {
@@ -43,7 +33,6 @@ function InfoProduto() {
                 handleLogout();
             }
         }
->>>>>>> parent of 80b3cf1 (substituição pelo backend)
     }
 
     // useEffect(() => {

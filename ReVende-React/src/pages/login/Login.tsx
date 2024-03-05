@@ -36,20 +36,20 @@ function Login() {
 
 	return (
 		<>
-			<div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold ">
+			<div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
 				<form
 					className="flex justify-center items-center flex-col w-1/2 gap-4"
 					onSubmit={login}
 				>
-					<h2 className="text-slate-900 text-5xl ">Entrar</h2>
+					<h2 className="text-[#1C3240] text-5xl ">Entrar</h2>
 					<div className="flex flex-col w-full">
-						<label htmlFor="email">Email</label>
+						<label htmlFor="email" className='text-[#1C3240]'>Email</label>
 						<input
 							type="text"
 							id="email"
 							name="email"
 							placeholder="Email"
-							className="border-2 border-slate-700 rounded p-2"
+							className="border-2 border-[#1C3240] rounded p-2"
 							value={usuarioLogin.email}
 							onChange={(e: ChangeEvent<HTMLInputElement>) =>
 								atualizarEstado(e)
@@ -57,7 +57,7 @@ function Login() {
 						/>
 					</div>
 					<div className="flex flex-col w-full">
-						<label htmlFor="senha">Senha</label>
+						<label htmlFor="senha" className='text-[#1C3240]'>Senha</label>
 						<input
 							type="password"
 							id="senha"
@@ -72,7 +72,7 @@ function Login() {
 					</div>
 					<button
 						type="submit"
-						className="rounded bg-indigo-400 hover:bg-indigo-900 text-white w-1/2 py-2 flex justify-center"
+						className="rounded bg-blue-500 hover:bg-blue-600 text-white w-1/2 py-2 flex justify-center"
 					>
 						{isLoading ? (
 							<RotatingLines
@@ -87,11 +87,11 @@ function Login() {
 						)}
 					</button>
 
-					<hr className="border-slate-800 w-full" />
+					<hr className="border-[#1C3240] w-full" />
 
-					<p>
+					<p className='text-[#1C3240]'>
 						Ainda não tem uma conta?{' '}
-						<Link to="/cadastro" className="text-indigo-800 hover:underline">
+						<Link to="/cadastro" className="text-blue-500 hover:underline">
 							Cadastre-se
 						</Link>
 					</p>

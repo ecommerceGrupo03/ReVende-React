@@ -71,5 +71,3 @@ function Footer() {
 
 export default Footer;
 
-//import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
-//<LinkedinLogo size={48} weight='bold' />

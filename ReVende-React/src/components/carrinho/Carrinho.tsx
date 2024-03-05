@@ -37,12 +37,12 @@ function Carrinho() {
     }
   }
 
-  useEffect(() => {
-    if (token === '') {
-      toastAlerta('Você precisa estar logado', 'info');
-      navigate('/login');
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (token === '') {
+  //     toastAlerta('Você precisa estar logado', 'info');
+  //     navigate('/login');
+  //   }
+  // }, [token]);
 
   useEffect(() => {
     if (ctx.produtos.length > 0 && !loadingProduto) {

@@ -19,12 +19,12 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
   const { usuario } = useContext(AuthContext);
   const token = usuario.token;
 
-  useEffect(() => {
-    if (token === '') {
-      toastAlerta('Você precisa estar logado', 'info');
-      navigate('/login');
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (token === '') {
+  //     toastAlerta('Você precisa estar logado', 'info');
+  //     navigate('/login');
+  //   }
+  // }, [token]);
 
   return (
     <div className="border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center">

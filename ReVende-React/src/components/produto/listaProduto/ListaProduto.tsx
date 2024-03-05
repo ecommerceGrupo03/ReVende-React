@@ -31,24 +31,24 @@ function ListaProduto() {
 
 	return (
 		<>
-			{produtos.length === 0 && (
-				<div className="flex justify-center align-middle pt-80">
-					<img src="" alt="" />
+			{(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
+				<div className='p-16'>
+					<Link to="/formularioProduto">
+						<div className='p-8 flex items-center justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl'>
+							<p className='text-3xl m-4'>Cadastrar um novo produto </p>
+							<Plus
+								size={48}
+								weight="bold"
+								color="darkgreen"
+							/>
+						</div>
+					</Link>
 				</div>
 			)}
 			<div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
 				{produtos.map((produto) => (
 					<CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
 				))}
-
-				<Link to="/formularioProduto">
-					<Plus
-						size={100}
-						weight="bold"
-						color="lightgreen"
-						className="border bg-green-600 hover:bg-green-800 flex items-center justify-center rounded-2xl"
-					/>
-				</Link>
 			</div>
 		</>
 	);

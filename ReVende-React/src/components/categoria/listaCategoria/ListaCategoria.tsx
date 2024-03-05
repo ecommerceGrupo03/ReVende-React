@@ -41,26 +41,32 @@ function ListaCategoria({ exibirBotoes }: ListaProps) {
 					<img src="" alt="" />
 				</div>
 			) : (
-				<div className="py-10 grid grid-cols-4 gap-y-16 content-stretch justify-items-center">
-					{categorias.map((categoria) => (
-						<>
-							<CardCategorias
-								key={categoria.id}
-								categoria={categoria}
-								exibirBotoes={exibirBotoes}
-							/>
-						</>
-					))}
+				<div>
 					{usuario.email == 'root@root.com' && exibirBotoes && (
+					<div className='p-16'>
 						<Link to="/formularioCategoria">
-							<Plus
-								size={100}
-								weight="bold"
-								color="lightgreen"
-								className="border bg-green-600 hover:bg-green-800 flex items-center justify-center rounded-2xl"
-							/>
+							<div className='p-8 flex items-center justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl'>
+								<p className='text-3xl m-4'>Cadastrar uma nova categoria </p>
+								<Plus
+									size={48}
+									weight="bold"
+									color="darkgreen"
+								/>
+							</div>
 						</Link>
+					</div>
 					)}
+					<div className="py-10 grid grid-cols-4 gap-y-16 content-stretch justify-items-center">
+						{categorias.map((categoria) => (
+							<>
+								<CardCategorias
+									key={categoria.id}
+									categoria={categoria}
+									exibirBotoes={exibirBotoes}
+								/>
+							</>
+						))}
+					</div>
 				</div>
 			)}
 		</>

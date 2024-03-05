@@ -1,6 +1,7 @@
 import ContactCard from '../../components/contactCard/ContactCard';
 import fotoJaque from '../../assets/fotoJaque.jpeg';
 import fotoMarilia from '../../assets/fotoMarilia.png'
+import fotoEloisa from '../../assets/fotoEloisa.jpeg'
 
 const Contact = () => {
 	return (
@@ -15,7 +16,7 @@ const Contact = () => {
 						nome="Eloisa Marin"
 						cargo="Desenvolvedora Java Full-Stack Júnior"
 						sobre="Olá, meu nome é Eloisa Marin e sou graduanda em Engenharia de Software. Desenvolvi projetos como sistemas para conta bancária, farmácia, blog pessoal e até mesmo um e-commerce. Isso me proporcionou a oportunidade de trabalhar em todas as fases do desenvolvimento, desde o back-end, banco de dados até o front-end."
-						imagem="https://avatars.githubusercontent.com/u/74751076?s=60&v=4"
+						imagem={fotoEloisa}
 						linkedin="https://www.linkedin.com/in/eloisamarin/"
 						github="https://github.com/eloisamarin"
 					/>

@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Produto from '../../../models/Produto';
 import { buscarAtravesId, deletar } from '../../../services/Service';
 import { toastAlerta } from '../../../util/toastAlerta';
+import CardProduto from '../cardProduto/CardProduto';
 
 function DeletarProduto() {
 	const [produto, setProduto] = useState<Produto>({} as Produto);
@@ -71,23 +72,23 @@ function DeletarProduto() {
 			<p className="text-center font-semibold">
 				Você tem certeza de que deseja apagar o produto a seguir?
 			</p>
-			<header className="mt-5 py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
-				{produto.nome}
-			</header>
-			<p className="p-8 text-3xl bg-slate-200 h-full">{produto.descricao}</p>
-			<div className="flex p-5">
+			<div className='flex content-center flex-col items-center justify-center mt-8'>
+				<CardProduto produto={produto} exibirBotoes={false}/>
+
+				<div className="flex p-5">
 				<button
-					className=" text-slate-900 bg-slate-300 hover:bg-slate-400 w-full py-2 font-bold"
+					className=" text-slate-900 bg-[#85A693] hover:bg-[#568C6D] w-full py-2 font-bold px-4 rounded"
 					onClick={retornar}
 				>
 					Não
 				</button>
 				<button
-					className="w-full text-white bg-[#FF4C4F] hover:bg-[#B91C1C] flex items-center justify-center font-bold"
+					className="w-full text-white bg-[#FF4C4F] hover:bg-[#B91C1C] flex items-center justify-center font-bold px-4 rounded"
 					onClick={deletarProduto}
 				>
 					Sim
 				</button>
+			</div>
 			</div>
 		</div>
 	</div>

@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
-import { buscar, buscarAtravesId } from "../../../services/Service";
+import { buscar} from "../../../services/Service";
 import { toastAlerta } from "../../../util/toastAlerta";
 import CardCategorias from "../cardCategoria/CardCategoria";
 import { Link } from "react-router-dom";
@@ -40,7 +40,7 @@ function ListaCategoria() {
         <div className="py-16 grid grid-cols-3 gap-8 content-stretch justify-items-center">
           {categorias.map((categoria) => (
             <>
-              <CardCategorias key={categoria.id} categoria={categoria} />
+              <CardCategorias key={categoria.id} categoria={categoria} exibirBotoes={true}/>
             </>
           ))}
           {usuario.email == "root@root.com" && (

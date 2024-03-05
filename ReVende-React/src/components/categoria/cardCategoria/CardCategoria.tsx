@@ -6,9 +6,10 @@ import { AuthContext } from '../../../contexts/AuthContext';
 
 interface CardCategoriaProps {
 	categoria: Categoria;
+	exibirBotoes:  boolean;
 }
 
-function CardCategorias({ categoria }: CardCategoriaProps) {
+function CardCategorias({ categoria, exibirBotoes }: CardCategoriaProps) {
 	const { usuario } = useContext(AuthContext);
 
 	return (

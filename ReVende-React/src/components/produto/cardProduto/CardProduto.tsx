@@ -2,15 +2,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Produto from "../../../models/Produto";
 import { Pencil, ShoppingCart, Trash } from "@phosphor-icons/react";
 import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { toastAlerta } from "../../../util/toastAlerta";
 
 interface CardProdutoProps {
   produto: Produto;
+  exibirBotoes: boolean;
 }
 
-function CardProduto({ produto }: CardProdutoProps) {
+function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
   let navigate = useNavigate();
 
   const ctx = useContext(CarrinhoContext);
@@ -54,35 +55,39 @@ function CardProduto({ produto }: CardProdutoProps) {
           </p>
         </div>
       </div>
+      
+      {(exibirBotoes) &&
+        <div>
+          <div className="flex">
+            {(produto.usuario?.cnpj == usuario.cnpj) &&
+              <Link
+                to={`/editarProduto/${produto.id}`}
+                className="w-full text-slate-100 bg-blue-500 hover:bg-blue-600 flex items-center justify-center py-2 gap-2"
+              >
+                <Pencil size={15} /> Editar
+              </Link>
+            }
 
-      <div className="flex">
-        {(produto.usuario?.cnpj == usuario.cnpj) &&
-          <Link
-            to={`/editarProduto/${produto.id}`}
-            className="w-full text-slate-100 bg-blue-500 hover:bg-blue-600 flex items-center justify-center py-2 gap-2"
-          >
-            <Pencil size={15} /> Editar
-          </Link>
-        }
+            {(produto.usuario?.cnpj == usuario.cnpj) &&
+              <Link
+                to={`/deletarProduto/${produto.id}`}
+                className="text-slate-100 bg-red-600 hover:bg-red-700 w-full flex items-center justify-center gap-2"
+              >
+                {" "}
+                <Trash size={15} /> Deletar{" "}
+              </Link>
+            }
+          </div>
 
-        {(produto.usuario?.cnpj == usuario.cnpj) &&
           <Link
-            to={`/deletarProduto/${produto.id}`}
-            className="text-slate-100 bg-red-600 hover:bg-red-700 w-full flex items-center justify-center gap-2"
+            to='' onClick={() => ctx.adicionarProduto(produto.id)}
+            className="text-slate-100 bg-green-500 hover:bg-green-600 w-full flex items-center justify-center gap-2 py-2"
           >
             {" "}
-            <Trash size={15} /> Deletar{" "}
+            <ShoppingCart size={15} /> Adicionar ao Carrinho{" "}
           </Link>
-        }
-      </div>
-
-      <Link
-        to='' onClick={() => ctx.adicionarProduto(produto.id)}
-        className="text-slate-100 bg-green-500 hover:bg-green-600 w-full flex items-center justify-center gap-2 py-2"
-      >
-        {" "}
-        <ShoppingCart size={15} /> Adicionar ao Carrinho{" "}
-      </Link>
+        </div>
+      }
     </div>
   );
 }

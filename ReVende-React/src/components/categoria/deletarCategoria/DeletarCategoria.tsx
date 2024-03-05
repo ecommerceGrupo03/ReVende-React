@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
-import { buscar, buscarAtravesId, deletar } from "../../../services/Service";
+import { buscarAtravesId, deletar } from "../../../services/Service";
 import { toastAlerta } from "../../../util/toastAlerta";
 import { Image } from "@phosphor-icons/react";
 

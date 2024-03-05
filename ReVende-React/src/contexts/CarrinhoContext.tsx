@@ -33,12 +33,12 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 	const { usuario, handleLogout } = useContext(AuthContext);
 	const token = usuario.token;
 	
-	  useEffect(() => {
-		if (token === '') {
-		  toastAlerta('Você precisa estar logado', 'info');
-		  navigate('/login');
-		}
-	  }, [token]);
+	//   useEffect(() => {
+	// 	if (token === '') {
+	// 	  toastAlerta('Você precisa estar logado', 'info');
+	// 	  navigate('/login');
+	// 	}
+	//   }, [token]);
 
 	function adicionarProduto(id:number) {
 		const lista_nova = [...produtos];

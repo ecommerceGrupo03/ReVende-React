@@ -2,7 +2,7 @@ import { Fragment, useContext, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { CarrinhoContext } from '../../contexts/CarrinhoContext';
-import { buscar, buscarAtravesId } from '../../services/Service';
+import { buscarAtravesId } from '../../services/Service';
 import Produto from '../../models/Produto';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toastAlerta } from '../../util/toastAlerta';
@@ -15,7 +15,7 @@ function Carrinho() {
 
   const [open, setOpen] = useState(true);
 
-  const { usuario, handleLogout } = useContext(AuthContext);
+  const { usuario } = useContext(AuthContext);
   const token = usuario.token;
 
   const [produtoAtual, setProdutoAtual] = useState<Produto>({id:0, nome:'', foto:'', preco:0, descricao:'', quantidade:0, categoria:null, usuario:null});

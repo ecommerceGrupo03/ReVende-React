@@ -41,6 +41,11 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 	//   }, [token]);
 
 	function adicionarProduto(id:number) {
+		if(usuario == null || usuario.token==''){
+			toastAlerta('Você precisa estar logado para adicionar itens ao carrinho.', 'erro')
+			return;
+		}
+
 		const lista_nova = [...produtos];
 
 		const novoProduto = lista_nova.find((produto) => produto.id === id);

@@ -140,7 +140,7 @@ function FormularioProduto() {
 	const carregandoCategoria = categoria.nome === '';
 
 	return (
-		<div className="container flex flex-col mx-auto items-center">
+		<div className="container flex flex-col mx-auto items-center pb-16">
 			<h1 className="text-4xl text-center my-8">
 				{id !== undefined ? 'Editar Produto' : 'Cadastrar Produto'}
 			</h1>
@@ -155,7 +155,7 @@ function FormularioProduto() {
 						placeholder="Nome..."
 						name="nome"
 						required
-						className="border-2 border-green-700 rounded p-2"
+						className="border-2 border-[#85A693] rounded p-2"
 					/>
 				</div>
 				<div className="flex flex-col gap-2">
@@ -167,7 +167,7 @@ function FormularioProduto() {
 						placeholder="Descrição..."
 						name="descricao"
 						required
-						className="border-2 border-green-700 rounded p-2"
+						className="border-2 border-[#85A693] rounded p-2"
 					/>
 				</div>
 				<div className="flex flex-col gap-2">
@@ -179,7 +179,7 @@ function FormularioProduto() {
 						placeholder="0"
 						name="preco"
 						required
-						className="border-2 border-green-700 rounded p-2"
+						className="border-2 border-[#85A693] rounded p-2"
 					/>
 				</div>
 				<div className="flex flex-col gap-2">
@@ -191,7 +191,7 @@ function FormularioProduto() {
 						placeholder="0"
 						name="quantidade"
 						required
-						className="border-2 border-green-700 rounded p-2"
+						className="border-2 border-[#85A693] rounded p-2"
 					/>
 				</div>
 				<div className="flex flex-col gap-2">
@@ -203,7 +203,7 @@ function FormularioProduto() {
 						placeholder="URL da foto..."
 						name="foto"
 						required
-						className="border-2 border-green-700 rounded p-2"
+						className="border-2 border-[#85A693] rounded p-2"
 					/>
 				</div>
 				<div className="flex flex-col gap-2">
@@ -211,7 +211,7 @@ function FormularioProduto() {
 					<select
 						name="categoria"
 						id="categoria"
-						className="border p-2 border-green-800 rounded"
+						className="border p-2 border-[#85A693] rounded"
 						onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
 					>
 						<option value="" selected disabled>
@@ -227,7 +227,7 @@ function FormularioProduto() {
 				<button
 					disabled={carregandoCategoria}
 					type="submit"
-					className="rounded disabled:bg-green-200 bg-green-400 hover:bg-green-800 text-white font-bold w-1/2 mx-auto block py-2"
+					className="rounded disabled:bg-blue-200 bg-blue-500 hover:bg-blue-600 text-white font-bold w-1/2 mx-auto block py-2"
 				>
 					{carregandoCategoria ? (
 						<span>Carregando...</span>
@@ -239,7 +239,7 @@ function FormularioProduto() {
 				</button>
 
 				<button
-					className="rounded text-white-100 bg-yellow-400 hover:bg-yellow-800 w-1/4 py-2 mx-auto block mt-4"
+					className="rounded text-white-100 bg-[#85A693] hover:bg-[#568C6D] w-1/4 py-2 mx-auto block mt-4"
 					onClick={retornar}
 				>
 					Voltar

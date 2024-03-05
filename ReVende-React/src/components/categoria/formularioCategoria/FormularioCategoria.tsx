@@ -101,7 +101,7 @@ function FormularioCategoria() {
 	}, [token]);
 
 	return (
-		<div className="container flex flex-col items-center justify-center mx-auto">
+		<div className="container flex flex-col items-center justify-center mx-auto pb-16">
 			<h1 className="text-4xl text-center my-8">
 				{id === undefined ? 'Cadastre uma nova categoria' : 'Editar categoria'}
 			</h1>
@@ -113,7 +113,7 @@ function FormularioCategoria() {
 						type="text"
 						placeholder="Nome"
 						name="nome"
-						className="border-2 border-slate-700 rounded p-2"
+						className="border-2 border-[#85A693] rounded p-2"
 						value={categoria.nome}
 						onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
 					/>
@@ -122,20 +122,20 @@ function FormularioCategoria() {
 						type="text"
 						placeholder="Descrição"
 						name="descricao"
-						className="border-2 border-slate-700 rounded p-2"
+						className="border-2 border-[#85A693] rounded p-2"
 						value={categoria.descricao}
 						onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
 					/>
 				</div>
 				<button
-					className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
+					className="rounded text-slate-100 bg-blue-500 hover:bg-blue-600 w-1/2 py-2 mx-auto block"
 					type="submit"
 				>
 					{id === undefined ? 'Cadastrar' : 'Editar'}
 				</button>
 
 				<button
-					className="rounded text-white-100 bg-yellow-400 hover:bg-yellow-800 w-1/4 py-2 mx-auto block mt-4"
+					className="rounded text-white-100 bg-[#85A693] hover:bg-[#568C6D] w-1/4 py-2 mx-auto block mt-4"
 					onClick={retornar}
 				>
 					Voltar

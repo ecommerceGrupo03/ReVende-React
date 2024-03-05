@@ -2,12 +2,13 @@ import { Fragment, useContext, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { CarrinhoContext } from '../../contexts/CarrinhoContext';
-import { buscarAtravesId } from '../../services/Service';
+import { buscar, buscarAtravesId } from '../../services/Service';
 import Produto from '../../models/Produto';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toastAlerta } from '../../util/toastAlerta';
 import { Link, useNavigate } from 'react-router-dom';
 import ProdutoCarrinho from '../../models/ProdutoCarrinho';
+import CardCarrinho from './cardCarrinho/CardCarrinho';
 
 function Carrinho() {
   let navigate = useNavigate();
@@ -15,69 +16,60 @@ function Carrinho() {
   const [open, setOpen] = useState(true);
 
   const { usuario, handleLogout } = useContext(AuthContext);
-	const token = usuario.token;
+  const token = usuario.token;
 
-  const [produtoAtual, setProdutoAtual] = useState<Produto>();
+  const [produtoAtual, setProdutoAtual] = useState<Produto>({id:0, nome:'', foto:'', preco:0, descricao:'', quantidade:0, categoria:null, usuario:null});
+
+  const [loadingProduto, setLoadingProduto] = useState(false);
 
   const ctx = useContext(CarrinhoContext);
 
   async function buscarProdutoPorId(id: number) {
-		await buscarAtravesId(`/produtos/${id}`, setProdutoAtual, {
-			headers: {
-				Authorization: token,
-			},
-		});
-	}
+    try {
+      buscarAtravesId(`/produtos/${id}`, setProdutoAtual, {
+        headers: {
+          Authorization: token,
+        },
+      });
+
+    } catch (error:any){
+      toastAlerta('Ocorreu um erro ao carregar o produto no carrinho.', 'erro');
+    }
+  }
 
   useEffect(() => {
-		if (token === '') {
-			toastAlerta('Você precisa estar logado', 'info');
-			navigate('/login');
-		}
-	}, [token]);
-
-  function listaProduto(produto:ProdutoCarrinho){
-    buscarProdutoPorId(produto.id);
-
-    ctx.updateValorTotal();
-
-    if(produtoAtual?.quantidade != 0) {
-      return (
-        <li key={produto.id} className="flex py-6">
-          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-            <img
-              src={produtoAtual?.foto}
-              alt='Imagem do Produto'
-              className="h-full w-full object-cover object-center"
-            />
-          </div>
-  
-          <div className="ml-4 flex flex-1 flex-col">
-            <div>
-              <div className="flex justify-between text-base font-medium text-gray-900">
-                <h3>
-                  <Link to={`/editarProduto/${produto.id}`}>{produtoAtual?.nome}</Link>
-                </h3>
-                <p className="ml-4">{produtoAtual?.preco}</p>
-              </div>
-              <p className="mt-1 text-sm text-gray-500">Vendedor: {produtoAtual?.usuario?.nome}</p>
-            </div>
-            <div className="flex flex-1 items-end justify-between text-sm">
-              <p className="text-gray-500">Qtd {produto.quantidade}</p>
-  
-              <div className="flex">
-                <button
-                  type="button" onClick={() => {ctx.removerProduto(produto.id)}}
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  Remover
-                </button>
-              </div>
-            </div>
-          </div>
-        </li>
-      );
+    if (token === '') {
+      toastAlerta('Você precisa estar logado', 'info');
+      navigate('/login');
     }
+  }, [token]);
+
+  useEffect(() => {
+    if (ctx.produtos.length > 0 && !loadingProduto) {
+      setLoadingProduto(true);
+  
+      const promises = ctx.produtos.map((produto) =>
+        buscarProdutoPorId(produto.id)
+      );
+  
+      Promise.all(promises)
+        .then(() => setLoadingProduto(false))
+        .catch((error) => {
+          toastAlerta('Ocorreu um erro ao carregar produtos no carrinho.', 'erro');
+          console.log(error);
+          setLoadingProduto(false);
+        });
+    }
+  }, [ctx.produtos, loadingProduto]);
+
+  function listaProduto(produto: ProdutoCarrinho) {
+    if (!produtoAtual || !produtoAtual.usuario) {
+      return null;
+    }
+
+    return (
+      <CardCarrinho id={produto.id} nome={produtoAtual.nome} foto={produtoAtual.foto} preco={produtoAtual.preco} quantidade={produto.quantidade} vendedor={produtoAtual.usuario.nome} />
+    );
   }
 
   return (

@@ -1,36 +1,49 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Produto from "../../../models/Produto";
 import { Pencil, ShoppingCart, Trash } from "@phosphor-icons/react";
 import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
-import { useContext } from "react";
+import { useContext, useEffect} from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { toastAlerta } from "../../../util/toastAlerta";
 
 interface CardProdutoProps {
   produto: Produto;
 }
 
 function CardProduto({ produto }: CardProdutoProps) {
+  let navigate = useNavigate();
+
   const ctx = useContext(CarrinhoContext);
 
   const { usuario } = useContext(AuthContext);
+  const token = usuario.token;
+
+  useEffect(() => {
+    if (token === '') {
+      toastAlerta('Você precisa estar logado', 'info');
+      navigate('/login');
+    }
+  }, [token]);
 
   return (
     <div className="border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center">
       <div key={produto.id} className="group relative">
         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-          <img
-            src={produto.foto}
-            alt="Imagem produto"
-            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-          />
+          <Link to={`/infoProduto/${produto.id}`}>
+            <img
+              src={produto.foto}
+              alt="Imagem produto"
+              className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+            />
+          </Link>
         </div>
         <div className="mt-4 flex justify-between p-6">
           <div>
             <h3 className="text-gray-700 font-black text-base">
-              <a href="#">
+              <Link to={`/infoProduto/${produto.id}`}>
                 <span aria-hidden="true" className="absolute inset-0" />
                 {produto.nome}
-              </a>
+              </Link>
             </h3>
             <p className="mt-1 text-sm text-gray-500">
               {produto.categoria?.nome}

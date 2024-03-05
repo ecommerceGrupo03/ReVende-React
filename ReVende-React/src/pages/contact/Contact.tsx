@@ -4,6 +4,7 @@ import fotoMarilia from '../../assets/fotoMarilia.png'
 import fotoEloisa from '../../assets/fotoEloisa.jpeg'
 import fotoMarina from '../../assets/fotoMarina.jpg'
 import fotoRafael from '../../assets/fotoRafael.jpg'
+import fotoLeonardo from '../../assets/fotoLeonardo.jpg'
 
 const Contact = () => {
 	return (
@@ -44,8 +45,10 @@ const Contact = () => {
 					<ContactCard
 						nome="Leonardo Duarte"
 						cargo="Desenvolvedor Java Full-Stack Júnior"
-						sobre="Olá, meu nome é Jaqueline e tenho 25 anos. Sou graduada em Gestão Ambiental, com recebimento de duas Láureas Acadêmicas. Estou em transição de carreira para Desenvolvedora Full Stack Java Jr. e estou realizando técnico em Desenvolvimento de Sistemas na ETEC.  Já desenvolvi um Projeto de Blog Pessoal Individual e o Revende"
-						imagem="https://avatars.githubusercontent.com/u/133834707?v=4"
+						sobre="Há um ano iniciei os estudos de nível técnico no curso de Desenvolvimento de Sistemas pela Etec no período
+						noturno, além de estar finalizando atualmente o Bootcamp Full Stack Java Web oferecido pela Generation Brasil.  Amo o que estudo e meu objetivo após o certificado técnico é a faculdade de Engenharia de
+						Software ou tecnólogo em Análise e Desenvolvimento de Sistemas."
+						imagem={fotoLeonardo}
 						linkedin="https://www.linkedin.com/in/leonardo-rodrigues-de-sousa-duarte-714bba260/"
 						github="https://github.com/LeoDuarte37"
 					/>
@@ -71,7 +74,7 @@ const Contact = () => {
 					<ContactCard
 						nome="Rafael Carmo"
 						cargo="Desenvolvedor Java Full-Stack Júnior"
-						sobre="Olá sou Rafael Carmo, tenho 26 anos e sou um barista em Transição de carreira para Desenvolvedor Full stack Java Jr, de um cafezinho para o outro . Com um olhar curioso e uma paixão pela resolução de problemas, estou mergulhando fundo na linguagem ,buscando novos desafios e oportunidades de crescimento profissional."
+						sobre="Olá sou Rafael Carmo, tenho 26 anos e sou um barista em Transição de carreira para Desenvolvedor Full stack Java Jr, de um cafezinho para o outro. Com um olhar curioso e uma paixão pela resolução de problemas, estou mergulhando fundo na linguagem ,buscando novos desafios e oportunidades de crescimento profissional."
 						imagem={fotoRafael}
 						linkedin="https://www.linkedin.com/in/rpimentelcarmo"
 						github="https://github.com/Rflpmt"

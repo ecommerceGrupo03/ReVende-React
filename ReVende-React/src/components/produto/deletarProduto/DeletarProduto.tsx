@@ -63,6 +63,8 @@ function DeletarProduto() {
 		retornar();
 	}
 	return (
+		
+		<div className="py-40">
 		<div className="container w-1/3 mx-auto">
 			<h1 className="text-4xl text-center my-4">Deletar produto</h1>
 
@@ -88,6 +90,8 @@ function DeletarProduto() {
 				</button>
 			</div>
 		</div>
+	</div>
+	
 	);
 }
 

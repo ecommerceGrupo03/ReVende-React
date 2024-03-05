@@ -10,11 +10,22 @@ export interface ContactProps {
 	github: string;
 }
 
-function ContactCard({ nome, cargo, sobre, imagem, linkedin, github }: ContactProps) {
+function ContactCard({
+	nome,
+	cargo,
+	sobre,
+	imagem,
+	linkedin,
+	github,
+}: ContactProps) {
 	return (
 		<div className="flex justify-center grid-cols-3 bg-gradient-to-l from-[#568C6D] to-[#B5C8BD] shadow-xl rounded-3xl items-center mb-10 container h-96 w-[1300px] gap-24 ">
 			<div className="flex">
-				<img src={imagem} alt={nome} className="rounded-full size-64" />
+				<img
+					src={imagem}
+					alt={nome}
+					className="rounded-full size-64 object-cover"
+				/>
 			</div>
 
 			<div className="align-center">

@@ -22,7 +22,7 @@ const Contact = () => {
 					<ContactCard
 						nome="Fernando Lopes"
 						cargo="Desenvolvedor Java Full-Stack Júnior"
-						sobre="Olá, meu nome é Jaqueline e tenho 25 anos. Sou graduada em Gestão Ambiental, com recebimento de duas Láureas Acadêmicas. Estou em transição de carreira para Desenvolvedora Full Stack Java Jr. e estou realizando técnico em Desenvolvimento de Sistemas na ETEC.  Já desenvolvi um Projeto de Blog Pessoal Individual e o Revende"
+						sobre="Interessado em tecnologias desde jovem e com habilidades em banco de dados MySQL, Spring Boot, máquinas virtuais, linguagens de programação como python e c, React e mais, busco um cargo como desenvolvedor fullstack júnior para demonstrar minhas habilidades."
 						imagem="https://avatars.githubusercontent.com/u/118869201?v=4"
 						linkedin="https://www.linkedin.com/in/fernando-barbosa-ferreira-lopes/"
 						github="https://github.com/plasmus777"

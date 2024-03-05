@@ -2,6 +2,8 @@ import ContactCard from '../../components/contactCard/ContactCard';
 import fotoJaque from '../../assets/fotoJaque.jpeg';
 import fotoMarilia from '../../assets/fotoMarilia.png'
 import fotoEloisa from '../../assets/fotoEloisa.jpeg'
+import fotoMarina from '../../assets/fotoMarina.jpg'
+import fotoRafael from '../../assets/fotoRafael.jpg'
 
 const Contact = () => {
 	return (
@@ -52,7 +54,7 @@ const Contact = () => {
 						nome="Marina Pereira"
 						cargo="Desenvolvedora Java Full-Stack Júnior"
 						sobre="Sou a Marina Pereira e tenho formação em Gestão de Negócios e Inovação e Gestão Financeira pela Fatec Sebrae. Trabalhei na área de políticas públicas de inovação e estou em transição de carreira para Desenvolvedora Full Stack Java React Jr. Como principais projetos, elaborei Blog Pessoal e projeto ReVende como conclusão do Bootcamp da Generation."
-						imagem="https://avatars.githubusercontent.com/u/146123948?s=60&v=4"
+						imagem={fotoMarina}
 						linkedin="https://www.linkedin.com/in/marina-alexandre-pereira/"
 						github="https://github.com/marina-mmap"
 					/>
@@ -70,7 +72,7 @@ const Contact = () => {
 						nome="Rafael Carmo"
 						cargo="Desenvolvedor Java Full-Stack Júnior"
 						sobre="Olá, meu nome é Jaqueline e tenho 25 anos. Sou graduada em Gestão Ambiental, com recebimento de duas Láureas Acadêmicas. Estou em transição de carreira para Desenvolvedora Full Stack Java Jr. e estou realizando técnico em Desenvolvimento de Sistemas na ETEC.  Já desenvolvi um Projeto de Blog Pessoal Individual e o Revende"
-						imagem="https://avatars.githubusercontent.com/u/151798963?s=60&v=4"
+						imagem={fotoRafael}
 						linkedin="https://www.linkedin.com/in/rpimentelcarmo"
 						github="https://github.com/Rflpmt"
 					/>

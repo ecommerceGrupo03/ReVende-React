@@ -42,7 +42,7 @@ function ListaCategoria({ exibirBotoes }: ListaProps) {
 				</div>
 			) : (
 				<div>
-					{usuario.email == 'root@root.com' && exibirBotoes && (
+					{usuario.email == 'root@root.com' || exibirBotoes && (
 					<div className='p-16'>
 						<Link to="/formularioCategoria">
 							<div className='p-8 flex items-center justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl'>

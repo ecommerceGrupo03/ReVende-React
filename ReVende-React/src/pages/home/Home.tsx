@@ -1,6 +1,7 @@
 import ListaProduto from '../../components/produto/listaProduto/ListaProduto';
 import encomendaFoto from '../../assets/encomenda.jpg';
 import banner from '../../assets/banner5.png';
+import { Info, Money, Truck } from '@phosphor-icons/react';
 
 const Home = () => {
 	return (
@@ -40,7 +41,7 @@ const Home = () => {
 
 					{/* banner */}
 
-					<div className="max-h-[400px] w-full bg-gradient-to-r from-[#20432f] to-[#5A6973]">
+					<div className="top-28 w-full bg-gradient-to-r from-[#20432f] to-[#5A6973]">
 						{' '}
 						<img
 							src={banner}
@@ -72,46 +73,51 @@ const Home = () => {
 						</div> */}
 					</div>
 					{/* ./banner */}
+
 					{/* features */}
 					<div className="container py-16">
 						<div className="w-10/12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto justify-center">
 							<div className="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
-								<img
+								<Truck size={32} />
+								{/* <img
 									src="assets/images/icons/delivery-van.svg"
 									alt="Delivery"
 									className="w-12 h-12 object-contain"
-								/>
+								/> */}
 								<div>
 									<h4 className="font-medium capitalize text-lg">
-										Free Shipping
+										Frete Grátis
 									</h4>
-									<p className="text-gray-500 text-sm">Order over $200</p>
+									<p className="text-gray-500 text-sm">
+										Pedidos acima de R$100
+									</p>
 								</div>
 							</div>
 							<div className="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
-								<img
+								<Money size={32} />
+
+								{/* <img
 									src="assets/images/icons/money-back.svg"
 									alt="Delivery"
 									className="w-12 h-12 object-contain"
-								/>
+								/> */}
 								<div>
 									<h4 className="font-medium capitalize text-lg">
-										Money Rturns
+										Política de Reembolso
 									</h4>
-									<p className="text-gray-500 text-sm">30 days money returs</p>
+									<p className="text-gray-500 text-sm">Garantia de 30 dias</p>
 								</div>
 							</div>
 							<div className="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
-								<img
+								<Info size={32} />
+								{/* <img
 									src="assets/images/icons/service-hours.svg"
 									alt="Delivery"
 									className="w-12 h-12 object-contain"
-								/>
+								/> */}
 								<div>
-									<h4 className="font-medium capitalize text-lg">
-										24/7 Support
-									</h4>
-									<p className="text-gray-500 text-sm">Customer support</p>
+									<h4 className="font-medium capitalize text-lg">Suporte</h4>
+									<p className="text-gray-500 text-sm">Seg-Sex das 9h às 18h</p>
 								</div>
 							</div>
 						</div>
@@ -558,8 +564,7 @@ const Home = () => {
 										alt="product 1"
 										className="w-full"
 									/>
-									<div
-										className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+									<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -609,7 +614,8 @@ const Home = () => {
 								</div>
 								<a
 									href="#"
-									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+								>
 									Add to cart
 								</a>
 							</div>
@@ -620,8 +626,7 @@ const Home = () => {
 										alt="product 1"
 										className="w-full"
 									/>
-									<div
-										className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+									<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -632,7 +637,8 @@ const Home = () => {
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="add to wishlist">
+											title="add to wishlist"
+										>
 											<i className="fa-solid fa-heart" />
 										</a>
 									</div>
@@ -670,7 +676,8 @@ const Home = () => {
 								</div>
 								<a
 									href="#"
-									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+								>
 									Add to cart
 								</a>
 							</div>
@@ -681,18 +688,19 @@ const Home = () => {
 										alt="product 1"
 										className="w-full"
 									/>
-									<div
-										className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+									<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="view product">
+											title="view product"
+										>
 											<i className="fa-solid fa-magnifying-glass" />
 										</a>
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="add to wishlist">
+											title="add to wishlist"
+										>
 											<i className="fa-solid fa-heart" />
 										</a>
 									</div>
@@ -730,7 +738,8 @@ const Home = () => {
 								</div>
 								<a
 									href="#"
-									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+								>
 									Add to cart
 								</a>
 							</div>
@@ -739,19 +748,21 @@ const Home = () => {
 									<img
 										src="assets/images/products/product1.jpg"
 										alt="product 1"
-										className="w-full"/>
-									<div
-										className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+										className="w-full"
+									/>
+									<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="view product">
+											title="view product"
+										>
 											<i className="fa-solid fa-magnifying-glass" />
 										</a>
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="add to wishlist">
+											title="add to wishlist"
+										>
 											<i className="fa-solid fa-heart" />
 										</a>
 									</div>
@@ -789,7 +800,8 @@ const Home = () => {
 								</div>
 								<a
 									href="#"
-									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+								>
 									Add to cart
 								</a>
 							</div>
@@ -798,19 +810,21 @@ const Home = () => {
 									<img
 										src="assets/images/products/product4.jpg"
 										alt="product 1"
-										className="w-full"/>
-									<div
-										className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+										className="w-full"
+									/>
+									<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="view product">
+											title="view product"
+										>
 											<i className="fa-solid fa-magnifying-glass" />
 										</a>
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="add to wishlist">
+											title="add to wishlist"
+										>
 											<i className="fa-solid fa-heart" />
 										</a>
 									</div>
@@ -848,7 +862,8 @@ const Home = () => {
 								</div>
 								<a
 									href="#"
-									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+								>
 									Add to cart
 								</a>
 							</div>
@@ -857,19 +872,21 @@ const Home = () => {
 									<img
 										src="assets/images/products/product2.jpg"
 										alt="product 1"
-										className="w-full"/>
-									<div
-										className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+										className="w-full"
+									/>
+									<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="view product">
+											title="view product"
+										>
 											<i className="fa-solid fa-magnifying-glass" />
 										</a>
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="add to wishlist">
+											title="add to wishlist"
+										>
 											<i className="fa-solid fa-heart" />
 										</a>
 									</div>
@@ -907,7 +924,8 @@ const Home = () => {
 								</div>
 								<a
 									href="#"
-									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+								>
 									Add to cart
 								</a>
 							</div>
@@ -916,19 +934,21 @@ const Home = () => {
 									<img
 										src="assets/images/products/product3.jpg"
 										alt="product 1"
-										className="w-full"/>
-									<div
-										className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+										className="w-full"
+									/>
+									<div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="view product">
+											title="view product"
+										>
 											<i className="fa-solid fa-magnifying-glass" />
 										</a>
 										<a
 											href="#"
 											className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-											title="add to wishlist">
+											title="add to wishlist"
+										>
 											<i className="fa-solid fa-heart" />
 										</a>
 									</div>
@@ -966,7 +986,8 @@ const Home = () => {
 								</div>
 								<a
 									href="#"
-									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+									className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+								>
 									Add to cart
 								</a>
 							</div>

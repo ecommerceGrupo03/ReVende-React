@@ -3,22 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toastAlerta } from '../../util/toastAlerta';
 import { Pencil } from '@phosphor-icons/react';
+import NavBar from '../../components/navBar/NavBar';
 function Perfil() {
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const { usuario } = useContext(AuthContext);
 
 	const token = usuario.token;
 
 	useEffect(() => {
-		if (usuario.token === '') {
+		if (token === '') {
 			toastAlerta(
 				'Erro de autenticação. Verifique as informações de login.',
 				'erro'
 			);
 			navigate('/login');
 		}
-	}, [usuario.token]);
+	}, [token]);
 
 	return (
 		// <div className="container mx-auto pb-10 rounded-2xl overflow-hidden">
@@ -40,14 +41,14 @@ function Perfil() {
 		// 	</div>
 		// </div>
 		<>
-			<link
+			{/* <link
 				rel="stylesheet"
 				href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
 			/>
 			<link
 				rel="stylesheet"
 				href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-			/>
+			/> */}
 			<main className=" pt-10 h-[75vh] profile-page bg-gradient-to-t from-[#85A693] to-[#f2f2f2] text-[#1C3240]">
 				<section className="relative block h-80">
 					<div className="absolute top-0 w-full h-full bg-center bg-cover"></div>

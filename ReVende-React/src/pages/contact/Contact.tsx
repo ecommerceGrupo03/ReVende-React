@@ -1,5 +1,6 @@
 import ContactCard from '../../components/contactCard/ContactCard';
 import fotoJaque from '../../assets/fotoJaque.jpeg';
+import fotoMarilia from '../../assets/fotoMarilia.png'
 
 const Contact = () => {
 	return (
@@ -59,7 +60,7 @@ const Contact = () => {
 						nome="Marília Tostes"
 						cargo="Desenvolvedora Java Full-Stack Júnior"
 						sobre="Olá! Sou a Marília, formada com honras em Comércio Exterior, e pós-graduada em Tradução-Inglês, com 2 anos de experiência. Sou Dev Full Stack em formação desde 2022, e as principais tecnologias que utilizo são HTML/CSS/JS/React, Java/Spring, MySQL, Git e GitHub. Fique à vontade para ver meus projetos no GitHub abaixo, que incluem projetos do Bootcamp Generation, como uma fármacia e o próprio ReVende."
-						imagem="https://avatars.githubusercontent.com/u/133540781?v=4"
+						imagem={fotoMarilia}
 						linkedin="https://www.linkedin.com/in/marilia-tostes/"
 						github="https://github.com/mariliatostesdev"
 					/>

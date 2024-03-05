@@ -71,7 +71,7 @@ const Contact = () => {
 					<ContactCard
 						nome="Rafael Carmo"
 						cargo="Desenvolvedor Java Full-Stack Júnior"
-						sobre="Olá, meu nome é Jaqueline e tenho 25 anos. Sou graduada em Gestão Ambiental, com recebimento de duas Láureas Acadêmicas. Estou em transição de carreira para Desenvolvedora Full Stack Java Jr. e estou realizando técnico em Desenvolvimento de Sistemas na ETEC.  Já desenvolvi um Projeto de Blog Pessoal Individual e o Revende"
+						sobre="Olá sou Rafael Carmo, tenho 26 anos e sou um barista em Transição de carreira para Desenvolvedor Full stack Java Jr, de um cafezinho para o outro . Com um olhar curioso e uma paixão pela resolução de problemas, estou mergulhando fundo na linguagem ,buscando novos desafios e oportunidades de crescimento profissional."
 						imagem={fotoRafael}
 						linkedin="https://www.linkedin.com/in/rpimentelcarmo"
 						github="https://github.com/Rflpmt"

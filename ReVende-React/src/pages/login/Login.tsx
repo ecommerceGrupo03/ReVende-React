@@ -7,7 +7,7 @@ import UsuarioLogin from '../../models/UsuarioLogin';
 import { RotatingLines } from 'react-loader-spinner';
 
 function Login() {
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
 		{} as UsuarioLogin
@@ -36,9 +36,9 @@ function Login() {
 
 	return (
 		<>
-			<div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
+			<div className="w-full font-bold flex justify-center  ">
 				<form
-					className="flex justify-center items-center flex-col w-1/2 gap-4"
+					className="flex py-40 items-center flex-col w-1/2 gap-4"
 					onSubmit={login}
 				>
 					<h2 className="text-[#1C3240] text-5xl ">Entrar</h2>
@@ -72,7 +72,7 @@ function Login() {
 					</div>
 					<button
 						type="submit"
-						className="rounded bg-blue-500 hover:bg-blue-600 text-white w-1/2 py-2 flex justify-center"
+						className="rounded bg-[#568C6D] hover:bg-[#85A693] text-white w-1/2 py-2 flex justify-center"
 					>
 						{isLoading ? (
 							<RotatingLines
@@ -91,7 +91,7 @@ function Login() {
 
 					<p className='text-[#1C3240]'>
 						Ainda não tem uma conta?{' '}
-						<Link to="/cadastro" className="text-blue-500 hover:underline">
+						<Link to="/cadastro" className="text-[#568C6D] hover:underline">
 							Cadastre-se
 						</Link>
 					</p>

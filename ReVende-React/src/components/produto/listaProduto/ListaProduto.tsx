@@ -28,7 +28,7 @@ function ListaProduto() {
 	useEffect(() => {
 		buscarProdutos();
 	}, []);
-	
+
 	return (
 		<>
 			{produtos.length === 0 && (

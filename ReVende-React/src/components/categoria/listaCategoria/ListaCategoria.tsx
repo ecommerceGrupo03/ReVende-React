@@ -37,7 +37,7 @@ function ListaCategoria() {
           <img src="" alt="" />
         </div>
       ) : (
-        <div className="pl-24 py-16 grid grid-cols-3 gap-8 content-stretch">
+        <div className="py-16 grid grid-cols-3 gap-8 content-stretch justify-items-center">
           {categorias.map((categoria) => (
             <>
               <CardCategorias key={categoria.id} categoria={categoria} />

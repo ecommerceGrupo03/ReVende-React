@@ -2,7 +2,7 @@ import { useState, useEffect, useContext, } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../../contexts/AuthContext';
 import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
-import { buscar } from '../../../services/Service';
+import { buscarAtravesId } from '../../../services/Service';
 import { toastAlerta } from "../../../util/toastAlerta";
 import Produto from "../../../models/Produto";
 import "./InfoProduto.css";
@@ -21,6 +21,7 @@ function InfoProduto() {
     const ctx = useContext(CarrinhoContext);
 
     async function buscarPorId(id: string) {
+<<<<<<< HEAD
         // try {
             await buscar(`/produtos/${id}`, setProduto);
         // } catch (error: any) {
@@ -29,6 +30,20 @@ function InfoProduto() {
         //         handleLogout();
         //     }
         // }
+=======
+        try {
+            await buscarAtravesId(`/produtos/${id}`, setProduto, {
+                headers: {
+                    Authorization: token,
+                },
+            });
+        } catch (error: any) {
+            if (error.toString().includes('403')) {
+                toastAlerta('O token expirou, favor logar novamente', 'info');
+                handleLogout();
+            }
+        }
+>>>>>>> parent of 80b3cf1 (substituição pelo backend)
     }
 
     // useEffect(() => {

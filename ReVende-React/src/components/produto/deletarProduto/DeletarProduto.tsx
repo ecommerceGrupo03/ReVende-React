@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Produto from '../../../models/Produto';
-import { buscar, deletar } from '../../../services/Service';
+import { buscarAtravesId, deletar } from '../../../services/Service';
 import { toastAlerta } from '../../../util/toastAlerta';
 import CardProduto from '../cardProduto/CardProduto';
 
@@ -18,7 +18,11 @@ function DeletarProduto() {
 
 	async function buscarPorId(id: string) {
 		try {
-			await buscar(`/produtos/${id}`, setProduto);
+			await buscarAtravesId(`/produtos/${id}`, setProduto, {
+				headers: {
+					Authorization: token,
+				},
+			});
 		} catch (error: any) {
 			if (error.toString().includes('403')) {
 				toastAlerta('O token expirou, favor logar novamente', 'info');

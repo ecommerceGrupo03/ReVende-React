@@ -2,13 +2,13 @@ import { Fragment, useContext, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { CarrinhoContext } from '../../contexts/CarrinhoContext';
+import { buscarAtravesId } from '../../services/Service';
 import Produto from '../../models/Produto';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toastAlerta } from '../../util/toastAlerta';
 import { Link, useNavigate } from 'react-router-dom';
 import ProdutoCarrinho from '../../models/ProdutoCarrinho';
 import CardCarrinho from './cardCarrinho/CardCarrinho';
-import { buscar } from '../../services/Service';
 
 function Carrinho() {
   let navigate = useNavigate();
@@ -26,7 +26,11 @@ function Carrinho() {
 
   async function buscarProdutoPorId(id: number) {
     try {
-      buscar(`/produtos/${id}`, setProdutoAtual);
+      buscarAtravesId(`/produtos/${id}`, setProdutoAtual, {
+        headers: {
+          Authorization: token,
+        },
+      });
 
     } catch (error:any){
       toastAlerta('Ocorreu um erro ao carregar o produto no carrinho.', 'erro');

@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 import { toastAlerta } from "../util/toastAlerta";
 import ProdutoCarrinho from "../models/ProdutoCarrinho";
-import { buscarAtravesId } from "../services/Service";
+import { buscar } from "../services/Service";
 import { AuthContext } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 import Produto from "../models/Produto";
@@ -90,11 +90,7 @@ export function CarrinhoProvider({ children }: CarrinhoProviderProps) {
 		  let total = 0;
 	  
 		  for (const produto of produtos) {
-			await buscarAtravesId(`/produtos/${produto.id}`, setProdutoAtual, {
-			  headers: {
-				Authorization: token,
-			  },
-			});
+			await buscar(`/produtos/${produto.id}`, setProdutoAtual);
 	  
 			if(!produtoAtual || isNaN(produtoAtual.preco)){
 				setValorTotal(0);

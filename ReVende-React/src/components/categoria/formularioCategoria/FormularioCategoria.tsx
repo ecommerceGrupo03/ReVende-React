@@ -2,11 +2,7 @@ import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Categoria from '../../../models/Categoria';
-import {
-	atualizar,
-	buscarAtravesId,
-	cadastrar,
-} from '../../../services/Service';
+import {atualizar, buscar, cadastrar} from '../../../services/Service';
 import { toastAlerta } from '../../../util/toastAlerta';
 
 function FormularioCategoria() {
@@ -20,11 +16,7 @@ function FormularioCategoria() {
 	const token = usuario.token;
 
 	async function buscarPorId(id: string) {
-		await buscarAtravesId(`/categorias/${id}`, setCategoria, {
-			headers: {
-				Authorization: token,
-			},
-		});
+		await buscar(`/categorias/${id}`, setCategoria);
 	}
 
 	useEffect(() => {

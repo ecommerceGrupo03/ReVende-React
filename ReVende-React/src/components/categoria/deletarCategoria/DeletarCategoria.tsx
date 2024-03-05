@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Categoria from "../../../models/Categoria";
-import { buscarAtravesId, deletar } from "../../../services/Service";
+import { buscar, deletar } from "../../../services/Service";
 import { toastAlerta } from "../../../util/toastAlerta";
 import { Image } from "@phosphor-icons/react";
 
@@ -18,11 +18,7 @@ function DeletarCategoria() {
 
   async function buscarPorId(id: string) {
     try {
-      await buscarAtravesId(`/categorias/${id}`, setCategoria, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      await buscar(`/categorias/${id}`, setCategoria);
     } catch (error: any) {
       if (error.toString().includes("403")) {
         toastAlerta("O token expirou, favor logar novamente", "info");

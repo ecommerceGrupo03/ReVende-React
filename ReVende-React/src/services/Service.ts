@@ -23,15 +23,6 @@ export const buscar = async (url: string, setDados: Function) => {
 	setDados(resposta.data);
 };
 
-export const buscarAtravesId = async (
-	url: string,
-	setDados: Function,
-	header: Object
-) => {
-	const resposta = await api.get(url, header);
-	setDados(resposta.data);
-};
-
 export const cadastrar = async (
 	url: string,
 	dados: Object,

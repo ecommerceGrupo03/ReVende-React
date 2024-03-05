@@ -2,7 +2,7 @@ import { useState, useEffect, useContext, } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../../contexts/AuthContext';
 import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
-import { buscarAtravesId } from '../../../services/Service';
+import { buscar } from '../../../services/Service';
 import { toastAlerta } from "../../../util/toastAlerta";
 import Produto from "../../../models/Produto";
 import "./InfoProduto.css";
@@ -22,11 +22,7 @@ function InfoProduto() {
 
     async function buscarPorId(id: string) {
         try {
-            await buscarAtravesId(`/produtos/${id}`, setProduto, {
-                headers: {
-                    Authorization: token,
-                },
-            });
+            await buscar(`/produtos/${id}`, setProduto);
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 toastAlerta('O token expirou, favor logar novamente', 'info');

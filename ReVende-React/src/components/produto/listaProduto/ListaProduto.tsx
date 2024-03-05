@@ -36,9 +36,9 @@ function ListaProduto() {
 					<img src="" alt="" />
 				</div>
 			)}
-			<div className="justify-items-center py-16 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+			<div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
 				{produtos.map((produto) => (
-					<CardProduto key={produto.id} produto={produto} exibirBotoes={true}/>
+					<CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
 				))}
 
 				<Link to="/formularioProduto">

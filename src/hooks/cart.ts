@@ -60,9 +60,15 @@ export default function useCart() {
     return total;
   }
 
+  async function ClearCart() {
+    setCart([]);
+    localStorage.setItem("cart", JSON.stringify([]));
+  }
+
   return {
     AddToCart,
     RemoveToCart,
     TotalCart,
+    ClearCart,
   };
 }

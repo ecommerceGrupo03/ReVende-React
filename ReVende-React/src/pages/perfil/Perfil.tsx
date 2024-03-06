@@ -22,33 +22,7 @@ function Perfil() {
 	}, [token]);
 
 	return (
-		// <div className="container mx-auto pb-10 rounded-2xl overflow-hidden">
-		// 	<img
-		// 		className="w-full h-72 object-cover border-b-8 pt-10 border-white"
-		// 		src={perfilCapa}
-		// 		alt="Capa do Perfil"
-		// 	/>
-		// 	<img
-		// 		src={usuario.foto}
-		// 		alt={`Foto de perfil de ${usuario.nome}`}
-		// 		className="rounded-full w-56 mx-auto mt-[-8rem] border-8 border-white relative z-10"
-		// 	/>
-		// 	<div className="relative mt-[-9rem] h-72 flex flex-col bg-[#308C50] text-white text-2xl items-center text-center justify-center">
-		// 		<div className="pt-28">
-		// 			<p>Nome: {usuario.nome} </p>
-		// 			<p>Email: {usuario.email}</p>
-		// 		</div>
-		// 	</div>
-		// </div>
 		<>
-			{/* <link
-				rel="stylesheet"
-				href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
-			/>
-			<link
-				rel="stylesheet"
-				href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-			/> */}
 			<main className=" pt-10 h-[75vh] profile-page bg-gradient-to-t from-[#85A693] to-[#f2f2f2] text-[#1C3240]">
 				<section className="relative block h-80">
 					<div className="absolute top-0 w-full h-full bg-center bg-cover"></div>

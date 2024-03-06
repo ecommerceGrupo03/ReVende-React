@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
 import { Link } from "react-router-dom";
 import useCart from "../../../hooks/cart";
@@ -20,11 +20,7 @@ function CardCarrinho({
   quantidade,
   vendedor,
 }: CardCarrinhoProps) {
-  const { RemoveToCart, TotalCart } = useCart();
-
-  useEffect(() => {
-    TotalCart();
-  }, []);
+  const { RemoveToCart } = useCart();
 
   return (
     <li key={id} className="flex py-6">

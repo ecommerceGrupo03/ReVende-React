@@ -45,9 +45,9 @@ function NavBar() {
 					{/* <!-- navbar --> */}
 					<nav className="flex justify-between bg-gradient-to-b from-[#85A693] to-[#f2f2f2] text-[#1C3240] ">
 						<div className="px-8 xl:px-12 py-6 flex w-full items-center justify-between">
-							<a className="text-3xl font-bold font-heading" href="/home">
+							<Link to="/home" className="text-3xl font-bold font-heading">
 								<img className="h-16" src={logoRevende} alt="logo" />
-							</a>
+							</Link>
 							{/* <!-- Nav Links --> */}
 							<ul className="hidden 2md:flex px-4 mx-auto font-semibold text-lg space-x-12">
 								<li>

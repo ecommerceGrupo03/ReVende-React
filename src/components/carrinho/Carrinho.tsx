@@ -1,23 +1,47 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { CarrinhoContext } from "../../contexts/CarrinhoContext";
 import { Link } from "react-router-dom";
 import CardCarrinho from "./cardCarrinho/CardCarrinho";
 import useCart from "../../hooks/cart";
 
 function Carrinho() {
   const [open, setOpen] = useState(true);
-  const { TotalCart } = useCart();
+  const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const { TotalCart, ClearCart } = useCart();
   const [total, setTotal] = useState(0);
-  const hasCart = localStorage.getItem("cart");
-  const products = JSON.parse(hasCart);
 
-  const ctx = useContext(CarrinhoContext);
+  async function getTotal() {
+    const amount = await TotalCart();
+    setTotal(amount);
+  }
+
+  function getProducts(){
+    setIsLoading(true);
+    const hasCart = localStorage.getItem("cart");
+    const cart = JSON.parse(hasCart);
+    setProducts(cart);
+    setIsLoading(false);
+  }
+
+  function renderProducts() {
+    return products.map((produto) => (
+      <CardCarrinho
+        id={produto.id}
+        nome={produto.nome}
+        foto={produto.photo}
+        preco={produto.price}
+        quantidade={produto.quantidade}
+        vendedor={produto.venderdor}
+      />
+    ));
+  }
 
   useEffect(() => {
-    TotalCart().then((res) => setTotal(res));
-  });
+    getTotal();
+    getProducts()
+  }, [products]);
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -72,16 +96,7 @@ function Carrinho() {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            {products.map((produto) => (
-                              <CardCarrinho
-                                id={produto.id}
-                                nome={produto.nome}
-                                foto={produto.photo}
-                                preco={produto.price}
-                                quantidade={produto.quantidade}
-                                vendedor={produto.venderdor}
-                              />
-                            ))}
+                            {isLoading ? <></> : renderProducts()}
                           </ul>
                         </div>
                       </div>
@@ -90,7 +105,7 @@ function Carrinho() {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>R$ {total}</p>
+                        <p>R$ { isLoading ? 0 : total}</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
                         Frete e taxas calculadas na compra.
@@ -99,14 +114,14 @@ function Carrinho() {
                         <Link
                           to=""
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={ctx.limparCarrinho}
+                          onClick={() => ClearCart()}
                         >
                           Comprar
                         </Link>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{" "}
+                          ou{" "}
                           <Link
                             to="/produtos"
                             type="button"

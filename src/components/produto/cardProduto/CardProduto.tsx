@@ -1,8 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Produto from "../../../models/Produto";
 import { Pencil, ShoppingCart, Trash } from "@phosphor-icons/react";
-import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { toastAlerta } from "../../../util/toastAlerta";
 import useCart from "../../../hooks/cart";
@@ -14,6 +13,12 @@ interface CardProdutoProps {
 
 function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
   const { AddToCart } = useCart();
+
+  const handleClickAdicionarAoCarrinho = () => {
+    AddToCart(produto);
+    toastAlerta('Produto adicionado ao carrinho!' , 'sucesso');
+  };
+
 
   const { usuario } = useContext(AuthContext);
 
@@ -72,7 +77,7 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
 
           <Link
             to=""
-            onClick={() => AddToCart(produto)}
+            onClick={handleClickAdicionarAoCarrinho}
             className="text-slate-100 bg-green-500 hover:bg-green-600 w-full flex items-center justify-center gap-2 py-2"
           >
             {" "}

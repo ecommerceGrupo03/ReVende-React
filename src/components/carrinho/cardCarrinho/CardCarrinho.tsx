@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState } from "react";
-import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
 import { Link } from "react-router-dom";
 import useCart from "../../../hooks/cart";
 

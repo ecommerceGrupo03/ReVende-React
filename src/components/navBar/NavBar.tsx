@@ -5,7 +5,6 @@ import logoRevende from "../../assets/logoRevende-nobg.svg";
 import { toastAlerta } from "../../util/toastAlerta";
 import {
   ShoppingCart,
-  SignIn,
   SignOut,
   UserCircle,
 } from "@phosphor-icons/react";

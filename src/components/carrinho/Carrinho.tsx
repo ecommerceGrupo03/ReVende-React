@@ -4,6 +4,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import CardCarrinho from "./cardCarrinho/CardCarrinho";
 import useCart from "../../hooks/cart";
+import { toastAlerta } from "../../util/toastAlerta";
 
 function Carrinho() {
   const [open, setOpen] = useState(true);
@@ -11,6 +12,11 @@ function Carrinho() {
   const [products, setProducts] = useState([]);
   const { TotalCart, ClearCart } = useCart();
   const [total, setTotal] = useState(0);
+
+  const handleClickComprar = () => {
+    () => ClearCart();
+    toastAlerta('Compra efetuada com sucesso!' , 'sucesso');
+  };
 
   async function getTotal() {
     const amount = await TotalCart();
@@ -33,7 +39,7 @@ function Carrinho() {
         foto={produto.photo}
         preco={produto.price}
         quantidade={produto.quantidade}
-        vendedor={produto.venderdor}
+        vendedor={produto.vendedor}
       />
     ));
   }
@@ -114,10 +120,11 @@ function Carrinho() {
                         <Link
                           to=""
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={() => ClearCart()}
+                          onClick={handleClickComprar}
                         >
                           Comprar
                         </Link>
+
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>

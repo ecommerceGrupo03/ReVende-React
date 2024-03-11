@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -9,7 +10,7 @@ import { Image } from "@phosphor-icons/react";
 function DeletarCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
 

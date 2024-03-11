@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 
 export default function useCart() {
@@ -14,7 +15,7 @@ export default function useCart() {
         nome: produto.nome,
         price: produto.preco,
         photo: produto.foto,
-        venderdor: produto.usuario.nome,
+        vendedor: produto.usuario.nome,
         quantidade: 1,
       };
       setCart([...cart, item]);
@@ -34,7 +35,7 @@ export default function useCart() {
         nome: produto.nome,
         price: produto.preco,
         photo: produto.foto,
-        venderdor: produto.usuario.nome,
+        vendedor: produto.usuario.nome,
         quantidade: 1,
       };
       setCart([...newCart, item]);
@@ -56,7 +57,7 @@ export default function useCart() {
     const oldCart = localStorage.getItem("cart");
     const cart = JSON.parse(oldCart);
     const amount = cart.map((item: any) => item.price * item.quantidade);
-    const total = amount.reduce((acc: any, item: any) => acc + item, 0);
+    const total = amount.reduce((acumulador: any, item: any) => acumulador + item, 0);
     return total;
   }
 
@@ -65,10 +66,17 @@ export default function useCart() {
     localStorage.setItem("cart", JSON.stringify([]));
   }
 
+  // function carrinhoVazio() {
+  //   const oldCart = localStorage.getItem("cart");
+  //   const cart = JSON.parse(oldCart);
+  //   return cart.length === 0;
+  // }
+
   return {
     AddToCart,
     RemoveToCart,
     TotalCart,
     ClearCart,
+    // carrinhoVazio
   };
 }

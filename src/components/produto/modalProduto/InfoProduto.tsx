@@ -7,47 +7,15 @@ import Produto from "../../../models/Produto";
 import "./InfoProduto.css";
 import useCart from "../../../hooks/cart";
 
-function InfoProduto() {
-  const [produto, setProduto] = useState<Produto>({} as Produto);
-  const { AddToCart } = useCart();
+interface InfoProdutoProps{
+  produto: Produto;
+}
 
-  const { id } = useParams<{ id: string }>();
+function InfoProduto({produto}: InfoProdutoProps) {
+  const { AddToCart } = useCart();
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
-
-  async function buscarPorId(id: string) {
-    try {
-      await buscarAtravesId(`/produtos/${id}`, setProduto, {
-        headers: {
-          Authorization: token,
-        },
-      });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      if (error.toString().includes("403")) {
-        toastAlerta("O token expirou, favor logar novamente", "info");
-        handleLogout();
-      }
-    }
-  }
-
-  // useEffect(() => {
-  //     if (token === '') {
-  //         toastAlerta('Você precisa estar logado', 'info');
-  //         navigate('/login');
-  //     }
-  // }, [token]);
-
-  useEffect(() => {
-    if (id !== undefined) {
-      buscarPorId(id);
-    }
-  }, [id]);
-
-  // function retornar() {
-  //     navigate('/home');
-  // }
 
   return (
     <>

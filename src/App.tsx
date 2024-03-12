@@ -68,8 +68,6 @@ function App() {
 									path="/deletarProduto/:id"
 									element={<DeletarProduto />}
 								/>
-
-								<Route path="/infoProduto/:id" element={<InfoProduto />} />
 							</Routes>
 						</div>
 						<Footer />

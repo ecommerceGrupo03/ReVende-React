@@ -30,8 +30,8 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
       <Popup open={exibirInfo} onClose={() => setExibirInfo(false)} closeOnEscape modal>
         <InfoProduto produto={produto}/>
       </Popup>
-      <div className="border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center" onClick={() => setExibirInfo(true)}>
-        <div key={produto.id} className="group relative">
+      <div className="border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center">
+        <div key={produto.id} className="group relative" onClick={() => setExibirInfo(true)}>
           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
             <img onClick={() => setExibirInfo(true)}
               src={produto.foto}

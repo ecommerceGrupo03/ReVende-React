@@ -14,6 +14,11 @@ interface InfoProdutoProps{
 function InfoProduto({produto}: InfoProdutoProps) {
   const { AddToCart } = useCart();
 
+  const handleClickAdicionarAoCarrinho = () => {
+    AddToCart(produto);
+    toastAlerta('Produto adicionado ao carrinho!' , 'sucesso');
+  };
+
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
@@ -51,7 +56,7 @@ function InfoProduto({produto}: InfoProdutoProps) {
                   {/* <span className="text-2xl leading-none align-baseline">.99</span> */}
                 </div>
                 <div className="inline-block align-bottom">
-                  <Link to="" onClick={() => AddToCart(produto)}>
+                  <Link to="" onClick={handleClickAdicionarAoCarrinho}>
                     <button className="bg-blue-500 opacity-75 hover:opacity-100 text-white rounded-full px-10 py-2 font-semibold">
                       <i className="mdi mdi-cart -ml-2 mr-2"></i>
                       Adicionar ao carrinho

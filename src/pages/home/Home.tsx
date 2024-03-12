@@ -3,6 +3,7 @@ import encomendaFoto from '../../assets/encomenda.jpg';
 import banner from '../../assets/banner5.png';
 import { Info, Money, Truck } from '@phosphor-icons/react';
 import ListaCategoria from '../../components/categoria/listaCategoria/ListaCategoria';
+import Carrossel from '../../components/carrossel/Carrossel';
 
 const Home = () => {
 	return (
@@ -10,15 +11,17 @@ const Home = () => {
 			<div className="pt-10 flex content-center bg-[#F2F2F2] flex-col items-center justify-center">
 				<>
 					{/* banner */}
-					<div className="top-28 w-full bg-gradient-to-r from-[#20432f] to-[#5A6973]">
+					{/* <div className="top-28 w-full bg-gradient-to-r from-[#20432f] to-[#5A6973]">
 						{' '}
 						<img
 							src={banner}
 							alt=""
 							className="w-full h-full bg-center object-contain"
 						/>
-					</div>
+					</div> */}
 					{/* ./banner */}
+
+					<Carrossel />
 
 					{/* categories */}
 					<div className="container">

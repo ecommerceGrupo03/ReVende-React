@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', '*.{js,ts,jsx,tsx}'],
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,html}', '*.{js,ts,jsx,tsx}',
+	"./node_modules/tw-elements/js/**/*.js"],
 	theme: {
 		extend: {},
 		screens: {
@@ -23,5 +25,9 @@ export default {
 			// => @media (min-width: 1280px) { ... }
 		},
 	},
-	plugins: [require('@tailwindcss/aspect-ratio')],
+	plugins: [
+		require('@tailwindcss/aspect-ratio'),
+		require("tw-elements/plugin.cjs"),
+]
+
 };

@@ -1,76 +1,53 @@
-import { Fragment, useContext, useEffect, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { CarrinhoContext } from '../../contexts/CarrinhoContext';
-import { buscarAtravesId } from '../../services/Service';
-import Produto from '../../models/Produto';
-import { AuthContext } from '../../contexts/AuthContext';
-import { toastAlerta } from '../../util/toastAlerta';
-import { Link, useNavigate } from 'react-router-dom';
-import ProdutoCarrinho from '../../models/ProdutoCarrinho';
-import CardCarrinho from './cardCarrinho/CardCarrinho';
+import { Fragment, useEffect, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import CardCarrinho from "./cardCarrinho/CardCarrinho";
+import useCart from "../../hooks/cart";
+import { toastAlerta } from "../../util/toastAlerta";
 
 function Carrinho() {
-  let navigate = useNavigate();
-
   const [open, setOpen] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const { TotalCart, ClearCart } = useCart();
+  const [total, setTotal] = useState(0);
 
-  const { usuario } = useContext(AuthContext);
-  const token = usuario.token;
+  const handleClickComprar = () => {
+    ClearCart()
+    toastAlerta('Compra efetuada com sucesso!' , 'sucesso');
+  };
 
-  const [produtoAtual, setProdutoAtual] = useState<Produto>({id:0, nome:'', foto:'', preco:0, descricao:'', quantidade:0, categoria:null, usuario:null});
-
-  const [loadingProduto, setLoadingProduto] = useState(false);
-
-  const ctx = useContext(CarrinhoContext);
-
-  async function buscarProdutoPorId(id: number) {
-    try {
-      buscarAtravesId(`/produtos/${id}`, setProdutoAtual, {
-        headers: {
-          Authorization: token,
-        },
-      });
-
-    } catch (error:any){
-      toastAlerta('Ocorreu um erro ao carregar o produto no carrinho.', 'erro');
-    }
+  async function getTotal() {
+    const amount = await TotalCart();
+    setTotal(amount);
   }
 
-  // useEffect(() => {
-  //   if (token === '') {
-  //     toastAlerta('Você precisa estar logado', 'info');
-  //     navigate('/login');
-  //   }
-  // }, [token]);
+  function getProducts(){
+    setIsLoading(true);
+    const hasCart = localStorage.getItem("cart");
+    const cart = JSON.parse(hasCart);
+    setProducts(cart);
+    setIsLoading(false);
+  }
+
+  function renderProducts() {
+    return products.map((produto) => (
+      <CardCarrinho
+        id={produto.id}
+        nome={produto.nome}
+        foto={produto.photo}
+        preco={produto.price}
+        quantidade={produto.quantidade}
+        vendedor={produto.vendedor}
+      />
+    ));
+  }
 
   useEffect(() => {
-    if (ctx.produtos.length > 0 && !loadingProduto) {
-      setLoadingProduto(true);
-  
-      const promises = ctx.produtos.map((produto) =>
-        buscarProdutoPorId(produto.id)
-      );
-  
-      Promise.all(promises)
-        .then(() => setLoadingProduto(false))
-        .catch((error) => {
-          toastAlerta('Ocorreu um erro ao carregar produtos no carrinho.', 'erro');
-          console.log(error);
-          setLoadingProduto(false);
-        });
-    }
-  }, [ctx.produtos, loadingProduto]);
-
-  function listaProduto(produto: ProdutoCarrinho) {
-    if (!produtoAtual || !produtoAtual.usuario) {
-      return null;
-    }
-
-    return (
-      <CardCarrinho id={produto.id} nome={produtoAtual.nome} foto={produtoAtual.foto} preco={produtoAtual.preco} quantidade={produto.quantidade} vendedor={produtoAtual.usuario.nome} />
-    );
-  }
+    getTotal();
+    getProducts()
+  }, [products]);
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -103,7 +80,9 @@ function Carrinho() {
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                       <div className="flex items-start justify-between">
-                        <Dialog.Title className="text-lg font-medium text-gray-900">Carrinho de compras</Dialog.Title>
+                        <Dialog.Title className="text-lg font-medium text-gray-900">
+                          Carrinho de compras
+                        </Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
                             type="button"
@@ -119,8 +98,11 @@ function Carrinho() {
 
                       <div className="mt-8">
                         <div className="flow-root">
-                          <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {ctx.produtos.map((produto) => listaProduto(produto))}
+                          <ul
+                            role="list"
+                            className="-my-6 divide-y divide-gray-200"
+                          >
+                            {isLoading ? <></> : renderProducts()}
                           </ul>
                         </div>
                       </div>
@@ -129,21 +111,26 @@ function Carrinho() {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>R$ {ctx.valorTotal}</p>
+                        <p>R$ { isLoading ? 0 : total}</p>
                       </div>
-                      <p className="mt-0.5 text-sm text-gray-500">Frete e taxas calculadas na compra.</p>
+                      <p className="mt-0.5 text-sm text-gray-500">
+                        Frete e taxas calculadas na compra.
+                      </p>
                       <div className="mt-6">
-                        <Link to=''
+                        <Link
+                          to=""
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={ctx.limparCarrinho}
+                          onClick={handleClickComprar}
                         >
                           Comprar
                         </Link>
+
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{' '}
-                          <Link to='/produtos'
+                          ou{" "}
+                          <Link
+                            to="/produtos"
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                             onClick={() => setOpen(false)}
@@ -162,7 +149,7 @@ function Carrinho() {
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }
 
 export default Carrinho;

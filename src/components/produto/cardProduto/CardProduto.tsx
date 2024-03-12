@@ -1,10 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Produto from "../../../models/Produto";
 import { Pencil, ShoppingCart, Trash } from "@phosphor-icons/react";
-import { CarrinhoContext } from "../../../contexts/CarrinhoContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { toastAlerta } from "../../../util/toastAlerta";
+import useCart from "../../../hooks/cart";
 
 interface CardProdutoProps {
   produto: Produto;
@@ -12,19 +12,15 @@ interface CardProdutoProps {
 }
 
 function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
-  let navigate = useNavigate();
+  const { AddToCart } = useCart();
 
-  const ctx = useContext(CarrinhoContext);
+  const handleClickAdicionarAoCarrinho = () => {
+    AddToCart(produto);
+    toastAlerta('Produto adicionado ao carrinho!' , 'sucesso');
+  };
+
 
   const { usuario } = useContext(AuthContext);
-  // const token = usuario.token;
-
-  // useEffect(() => {
-  //   if (token === '') {
-  //     toastAlerta('Você precisa estar logado', 'info');
-  //     navigate('/login');
-  //   }
-  // }, [token]);
 
   return (
     <div className="border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center">
@@ -55,20 +51,20 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
           </p>
         </div>
       </div>
-      
-      {(exibirBotoes) &&
+
+      {exibirBotoes && (
         <div>
           <div className="flex">
-            {(produto.usuario?.cnpj == usuario.cnpj) &&
+            {produto.usuario?.cnpj == usuario.cnpj && (
               <Link
                 to={`/editarProduto/${produto.id}`}
                 className="w-full text-slate-100 bg-blue-500 hover:bg-blue-600 flex items-center justify-center py-2 gap-2"
               >
                 <Pencil size={15} /> Editar
               </Link>
-            }
+            )}
 
-            {(produto.usuario?.cnpj == usuario.cnpj) &&
+            {produto.usuario?.cnpj == usuario.cnpj && (
               <Link
                 to={`/deletarProduto/${produto.id}`}
                 className="text-slate-100 bg-red-600 hover:bg-red-700 w-full flex items-center justify-center gap-2"
@@ -76,18 +72,19 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
                 {" "}
                 <Trash size={15} /> Deletar{" "}
               </Link>
-            }
+            )}
           </div>
 
           <Link
-            to='' onClick={() => ctx.adicionarProduto(produto.id)}
+            to=""
+            onClick={handleClickAdicionarAoCarrinho}
             className="text-slate-100 bg-green-500 hover:bg-green-600 w-full flex items-center justify-center gap-2 py-2"
           >
             {" "}
             <ShoppingCart size={15} /> Adicionar ao Carrinho{" "}
           </Link>
         </div>
-      }
+      )}
     </div>
   );
 }

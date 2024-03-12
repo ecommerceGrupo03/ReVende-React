@@ -1,9 +1,10 @@
-import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
-import logoRevende from '../../assets/logoRevende-nobg.svg';
-import { toastAlerta } from '../../util/toastAlerta';
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import logoRevende from "../../assets/logoRevende-nobg.svg";
+import { toastAlerta } from "../../util/toastAlerta";
 import {
+
 	ShoppingCart,
 	SignIn,
 	SignOut,
@@ -13,32 +14,37 @@ import Carrinho from '../carrinho/Carrinho';
 import { CarrinhoContext } from '../../contexts/CarrinhoContext';
 import DropDown from '../dropDown/DropDown';
 
+
 function NavBar() {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	const { usuario, handleLogout } = useContext(AuthContext);
+  const { usuario, handleLogout } = useContext(AuthContext);
 
-	const [carrinhoOpen, setCarrinhoOpen] = useState(false);
+  const [carrinhoOpen, setCarrinhoOpen] = useState(false);
 
-	const ctx = useContext(CarrinhoContext);
+  const ctx = useContext(CarrinhoContext);
 
-	function logout() {
-		handleLogout();
-		toastAlerta('Usuário deslogado com sucesso.', 'sucesso');
-		navigate('/login');
-	}
+  function logout() {
+    handleLogout();
+    toastAlerta("Usuário deslogado com sucesso.", "sucesso");
+    navigate("/login");
+  }
 
-	function handleCarrinhoOpen() {
-		if (carrinhoOpen) {
-			setCarrinhoOpen(false);
-		} else {
-			setCarrinhoOpen(true);
-		}
-	}
+  function handleCarrinhoOpen() {
+    if (usuario.id === 0) {
+      return toastAlerta("Você precisa estar logado", "info");
+    }
+    if (carrinhoOpen) {
+      setCarrinhoOpen(false);
+    } else {
+      setCarrinhoOpen(true);
+    }
+  }
 
-	return (
-		<>
-			{carrinhoOpen == true && <Carrinho />}
+  return (
+    <>
+      {carrinhoOpen === true && <Carrinho />}
+
 
 			<div className="flex flex-wrap place-items-center">
 				<section className="relative mx-auto w-full">

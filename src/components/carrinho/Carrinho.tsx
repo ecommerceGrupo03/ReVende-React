@@ -14,7 +14,7 @@ function Carrinho() {
   const [total, setTotal] = useState(0);
 
   const handleClickComprar = () => {
-    () => ClearCart();
+    ClearCart()
     toastAlerta('Compra efetuada com sucesso!' , 'sucesso');
   };
 

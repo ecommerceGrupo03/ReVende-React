@@ -66,17 +66,10 @@ export default function useCart() {
     localStorage.setItem("cart", JSON.stringify([]));
   }
 
-  // function carrinhoVazio() {
-  //   const oldCart = localStorage.getItem("cart");
-  //   const cart = JSON.parse(oldCart);
-  //   return cart.length === 0;
-  // }
-
   return {
     AddToCart,
     RemoveToCart,
     TotalCart,
     ClearCart,
-    // carrinhoVazio
   };
 }

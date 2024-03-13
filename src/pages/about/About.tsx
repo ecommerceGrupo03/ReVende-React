@@ -52,11 +52,13 @@ const About = () => {
 						</p>
 					</div>
 					<div className="px-8">
-						<img
-							className="container object-scale-down h-48 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full"
-							src={odsObjetivo12}
-							alt=""
-						/>
+						<a href="URL_DO_SITE_ALVO" target="_blank" rel="noopener noreferrer">
+							<img
+								className="container object-scale-down h-48 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full"
+								src={odsObjetivo12}
+								alt=""
+							/>
+						</a>
 					</div>
 					{/* <div className="flex justify-center inset-y-0 w-full max-w-xl px-4 pb-16 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0"> */}
 				</div>

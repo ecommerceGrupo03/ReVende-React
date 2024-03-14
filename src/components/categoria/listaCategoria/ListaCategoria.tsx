@@ -57,7 +57,7 @@ function ListaCategoria({ exibirBotoes }: ListaProps) {
                         </div>
                     )}
                     <div className='flex justify-center'>
-                        <div className="py-20 h-fit grid grid-cols-3 gap-y-16 justify-items-center">
+                        <div className="py-20 w-full h-fit grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
                             {categorias.map((categoria) => (
                                 <>
                                     <CardCategorias

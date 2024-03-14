@@ -32,7 +32,7 @@ function PaginaCategoria(id) {
 
                 <div id="teste" className="pt-10 text-2xl font-bold"></div>
 
-                <div className="justify-items-center py-10 grid grid-cols-4 gap-y-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <div className="justify-items-center py-10 grid gap-y-10 xsl:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  w-full">
                     {produtos.filter((produto) => (
                         produto.categoria.id === currentCategoryId
                     )).map((produto, index) => {

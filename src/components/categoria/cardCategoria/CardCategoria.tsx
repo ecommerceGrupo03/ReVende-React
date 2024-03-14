@@ -22,7 +22,7 @@ function CardCategorias({ categoria, exibirBotoes }: CardCategoriaProps) {
     };
 
     return (
-        <div className="bg-white border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center categoriaSelecionada">
+        <div className="min-h-[150px] min-w-[200px] sm:min-w-[200px] bg-white border shadow-xl flex flex-col rounded-2xl w-4/5 overflow-hidden justify-center categoriaSelecionada">
             {usuario.email == 'root@root.com' && exibirBotoes && (
                 <div className="flex w-full justify-end items-center gap-4 px-6 mt-6">
                     <div className="flex rounded-full">
@@ -43,14 +43,14 @@ function CardCategorias({ categoria, exibirBotoes }: CardCategoriaProps) {
                     </Link>
                 </div>
             )}
-            <div className="justify-center flex align-center  bg-white box-shadow: 0 1px 2px 0 ">
-                {/* <Image size={100} color="gray-900" weight="thin" /> */}
-            </div>
-            <div className="px-6 py-8">
-                <header onClick={() => byCategories(categoria.id, categoria.nome)} className="pb-3 font-semibold text-gray-900 bg-white text-xl cursor-pointer hover:text-[#568C6D] hover:underline">
+            {/* <div className="justify-center flex align-center  bg-white box-shadow: 0 1px 2px 0 ">
+                <Image size={100} color="gray-900" weight="thin" />
+            </div> */}
+            <div className="min-h-[150px] min-w-[200px] flex flex-col py-5 px-4 justify-start">
+                <header onClick={() => byCategories(categoria.id, categoria.nome)} className="pb-2 font-semibold text-gray-900 bg-white text-xl cursor-pointer hover:text-[#568C6D] hover:underline">
                     {categoria.nome}
                 </header>
-                <p className="pt-3 text-sm text-gray-600 bg-white">{categoria.descricao}</p>
+                <p className="text-sm text-gray-600 bg-white flex pt-2 w-fit">{categoria.descricao}</p>
             </div>
         </div>
     );

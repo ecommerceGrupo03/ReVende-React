@@ -26,7 +26,7 @@ const Home = () => {
                     <Carrossel2 />
 
                     {/* categories */}
-                    <div className="container">
+                    <div className="">
                         <h2 className="text-2xl font-medium text-gray-800 uppercase pt-10 px-8">
                             Categorias
                         </h2>
@@ -34,7 +34,7 @@ const Home = () => {
                     </div>
 
                     {/* ./product */}
-                    <div className="container">
+                    <div className=" w-full">
                         <h2 className="text-2xl font-medium text-gray-800 uppercase px-8 pt-10">
                             Todos os Produtos
                         </h2>

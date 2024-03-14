@@ -40,10 +40,13 @@ function InfoProduto({produto}: InfoProdutoProps) {
             </div>
             <div className="w-full md:w-1/2 px-10">
               <div className="mb-10">
-                <h1 className="font-bold uppercase text-2xl mb-5">
+                <h1 className="font-bold uppercase text-3xl mb-5">
                   {produto.nome}
                 </h1>
-                <p className="text-sm">{produto.descricao}</p>
+                <p className="text-md">{produto.descricao}</p>
+                <div className="mt-8">
+                  <p className="text-lg">Vendedor: {produto.usuario.nome}</p>
+                </div>
               </div>
               <div>
                 <div className="inline-block align-bottom mr-5">

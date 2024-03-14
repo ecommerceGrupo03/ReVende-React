@@ -3,26 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import logoRevende from "../../assets/logoRevende-nobg.svg";
 import { toastAlerta } from "../../util/toastAlerta";
-import {
-
-	ShoppingCart,
-	SignIn,
-	SignOut,
-	UserCircle,
-} from '@phosphor-icons/react';
+import {ShoppingCart,SignOut,UserCircle,} from '@phosphor-icons/react';
 import Carrinho from '../carrinho/Carrinho';
-import { CarrinhoContext } from '../../contexts/CarrinhoContext';
 import DropDown from '../dropDown/DropDown';
-
 
 function NavBar() {
   const navigate = useNavigate();
+	const oldcart = JSON.parse(localStorage.getItem("cart"));
 
   const { usuario, handleLogout } = useContext(AuthContext);
 
   const [carrinhoOpen, setCarrinhoOpen] = useState(false);
-
-  const ctx = useContext(CarrinhoContext);
 
   function logout() {
     handleLogout();
@@ -101,7 +92,7 @@ function NavBar() {
 										weight="bold"
 										className="text-[#1C3240] hover:text-[#111f27]"
 									/>
-									{ctx.carrinhoVazio() == false && (
+									{oldcart !== null && oldcart.length > 0 && (
 										<span className="flex absolute -mt-5 ml-4">
 											<span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
 											<span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>

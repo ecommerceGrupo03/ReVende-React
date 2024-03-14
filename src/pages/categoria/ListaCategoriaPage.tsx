@@ -14,7 +14,7 @@ interface ListaProps {
 }
 
 function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
-  const [categorias, setCategorias] = useState<Categoria[]>([]);
+  const [categorias, setCategorias] = useState([]);
   const [produtos, setProdutos] = useState([]);
 
   const { usuario, handleLogout } = useContext(AuthContext);

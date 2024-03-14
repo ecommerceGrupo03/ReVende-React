@@ -25,10 +25,14 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
 
     const [exibirInfo, setExibirInfo] = useState(false);
 
+    function fecharInfo(){
+        setExibirInfo(false);
+    }
+
     return (
         <>
             <Popup open={exibirInfo} onClose={() => setExibirInfo(false)} closeOnEscape modal>
-                <InfoProduto produto={produto} />
+                <InfoProduto produto={produto} fecharInfo={fecharInfo}/>
             </Popup>
             <div className="border shadow-xl flex flex-col rounded-2xl w-5/6 overflow-hidden justify-between hover:scale-105 transition duration-700 ease-in-out">
                 <div key={produto.id} className="group relative" onClick={() => setExibirInfo(true)}>

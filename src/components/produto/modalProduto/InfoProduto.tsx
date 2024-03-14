@@ -6,12 +6,14 @@ import { toastAlerta } from "../../../util/toastAlerta";
 import Produto from "../../../models/Produto";
 import "./InfoProduto.css";
 import useCart from "../../../hooks/cart";
+import { XCircle } from "@phosphor-icons/react";
 
 interface InfoProdutoProps{
   produto: Produto;
+  fecharInfo;
 }
 
-function InfoProduto({produto}: InfoProdutoProps) {
+function InfoProduto({produto, fecharInfo}: InfoProdutoProps) {
   const { AddToCart } = useCart();
 
   const handleClickAdicionarAoCarrinho = () => {
@@ -26,6 +28,7 @@ function InfoProduto({produto}: InfoProdutoProps) {
     <>
       <div className="min-w-screen min-h-screen bg-white-300 flex items-center overflow-hidden relative">
         <div className="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+          <XCircle size={30} onClick={fecharInfo} color="#5A6973" className="absolute top-0 right-0 m-4 hover:cursor-pointer"/>
           <div className="md:flex items-center -mx-10">
             <div className="w-full md:w-1/2 px-10 mb-10 md:mb-0">
               <div className="relative overflow-hidden">

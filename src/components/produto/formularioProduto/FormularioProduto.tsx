@@ -157,6 +157,9 @@ function FormularioProduto() {
 						required
 						className="border-2 border-[#85A693] rounded p-2"
 					/>
+					{(produto.nome == '' || produto.nome == null || produto.nome.length > 255 || produto.nome.length < 2) &&
+              			<label className="text-red-500">O nome do produto deve ter entre 2 caracteres e 255 caracteres.</label>
+            		}
 				</div>
 				<div className="flex flex-col gap-2">
 					<label htmlFor="descricao">Descrição do produto:</label>
@@ -169,6 +172,9 @@ function FormularioProduto() {
 						required
 						className="border-2 border-[#85A693] rounded p-2"
 					/>
+					{(produto.descricao == '' || produto.descricao == null || produto.descricao.length > 255 || produto.descricao.length < 10) &&
+              			<label className="text-red-500">A descrição do produto deve ter entre 10 e 255 caracteres.</label>
+            		}
 				</div>
 				<div className="flex flex-col gap-2">
 					<label htmlFor="preco">Preço da unidade:</label>
@@ -181,6 +187,9 @@ function FormularioProduto() {
 						required
 						className="border-2 border-[#85A693] rounded p-2"
 					/>
+					{(produto.preco == null || produto.preco < 0) &&
+              			<label className="text-red-500">O preço do produto não pode ser menor do que zero.</label>
+            		}
 				</div>
 				<div className="flex flex-col gap-2">
 					<label htmlFor="quantidade">Unidades em estoque:</label>
@@ -193,6 +202,9 @@ function FormularioProduto() {
 						required
 						className="border-2 border-[#85A693] rounded p-2"
 					/>
+					{(produto.quantidade == null || produto.quantidade < 0) &&
+              			<label className="text-red-500">A quantidade em estoque não pode ser menor do que zero.</label>
+            		}
 				</div>
 				<div className="flex flex-col gap-2">
 					<label htmlFor="foto">Foto do produto:</label>
@@ -205,6 +217,9 @@ function FormularioProduto() {
 						required
 						className="border-2 border-[#85A693] rounded p-2"
 					/>
+					{(produto.foto.length > 1000) &&
+              			<label className="text-red-500">O link da foto do produto deve ter no máximo 1000 caracteres.</label>
+            		}
 				</div>
 				<div className="flex flex-col gap-2">
 					<label htmlFor="categoria">Categoria do produto:</label>

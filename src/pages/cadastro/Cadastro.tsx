@@ -96,6 +96,9 @@ function Cadastro() {
                 atualizarEstado(e)
               }
             />
+            {(usuario.nome == '' || usuario.nome == null || usuario.nome.length > 255 || usuario.nome.length < 5) &&
+              <label className="text-red-500">O nome deve ter entre 5 e 255 caracteres.</label>
+            }
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="email">Email</label>
@@ -110,6 +113,9 @@ function Cadastro() {
                 atualizarEstado(e)
               }
             />
+            {(usuario.email == '' || usuario.email == null || usuario.email.length > 255 || usuario.email.length < 5) &&
+              <label className="text-red-500">O e-mail deve ter entre 5 e 255 caracteres.</label>
+            }
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="foto">Foto</label>
@@ -124,6 +130,9 @@ function Cadastro() {
                 atualizarEstado(e)
               }
             />
+            {(usuario.foto.length > 1000) &&
+              <label className="text-red-500">O link da foto do usuário deve ter no máximo 1000 caracteres.</label>
+            }
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="senha">Senha</label>
@@ -138,6 +147,9 @@ function Cadastro() {
                 atualizarEstado(e)
               }
             />
+            {(usuario.senha == '' || usuario.senha == null || usuario.senha.length > 255 || usuario.senha.length < 8) &&
+              <label className="text-red-500">A senha deve ter entre 8 e 255 caracteres.</label>
+            }
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="confirmarSenha">Confirmar Senha</label>
@@ -152,6 +164,9 @@ function Cadastro() {
                 handleConfirmarSenha(e)
               }
             />
+            {(confirmaSenha !== usuario.senha) &&
+              <label className="text-red-500">As senhas não são iguais.</label>
+            }
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="cpf">CPF</label>
@@ -166,6 +181,9 @@ function Cadastro() {
                 atualizarEstado(e)
               }
             />
+            {(usuario.cpf.length > 14) &&
+              <label className="text-red-500">O CPF deve ter no máximo 14 caracteres.</label>
+            }
           </div>
           <div className="flex flex-col w-full">
             <label htmlFor="cnpj">CNPJ</label>
@@ -180,6 +198,9 @@ function Cadastro() {
                 atualizarEstado(e)
               }
             />
+            {(usuario.cnpj.length > 18) &&
+              <label className="text-red-500">O CNPJ deve ter no máximo 18 caracteres.</label>
+            }
           </div>
           <div className="flex justify-around w-full gap-8 py-6">
             <button

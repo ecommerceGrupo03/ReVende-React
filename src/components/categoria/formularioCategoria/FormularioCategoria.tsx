@@ -10,7 +10,10 @@ import {
 import { toastAlerta } from '../../../util/toastAlerta';
 
 function FormularioCategoria() {
-	const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
+	const [categoria, setCategoria] = useState<Categoria>({
+		nome:'',
+		descricao:''
+	} as Categoria);
 
 	const navigate = useNavigate();
 
@@ -117,6 +120,9 @@ function FormularioCategoria() {
 						value={categoria.nome}
 						onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
 					/>
+					{(categoria.nome == '' || categoria.nome == null || categoria.nome.length < 5 || categoria.nome.length > 255) &&
+              			<label className="text-red-500">O nome da categoria deve ter entre 5 e 255 caracteres.</label>
+            		}
 					<label htmlFor="descricao">Descrição da categoria</label>
 					<input
 						type="text"
@@ -126,6 +132,9 @@ function FormularioCategoria() {
 						value={categoria.descricao}
 						onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
 					/>
+					{(categoria.descricao.length > 255) &&
+              			<label className="text-red-500">A descrição da categoria deve ter no máximo 255 caracteres.</label>
+            		}
 				</div>
 				<button
 					className="rounded text-slate-100 bg-blue-500 hover:bg-blue-600 w-1/2 py-2 mx-auto block"

@@ -31,6 +31,7 @@ function ListaProduto() {
 
     return (
         <>
+            <div className='max-w-[1350px]'>
             {(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
                 <div className='p-16'>
                     <Link to="/formularioProduto">
@@ -51,7 +52,7 @@ function ListaProduto() {
                 {produtos.map((produto) => (
                     <CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
                 ))}
-            </div>
+            </div></div>
         </>
     );
 }

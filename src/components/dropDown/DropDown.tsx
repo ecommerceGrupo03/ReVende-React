@@ -63,7 +63,7 @@ function DropDown() {
 							Produtos
 						</Link>
 						<Link
-							to="/categorias"
+							to="/pageCategoria"
 							className="block py-2 px-4 hover:bg-gray-100"
 						>
 							Categorias

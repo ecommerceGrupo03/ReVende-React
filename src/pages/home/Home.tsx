@@ -34,7 +34,7 @@ const Home = () => {
                     </div>
 
                     {/* ./product */}
-                    <div className=" w-full">
+                    <div className="">
                         <h2 className="text-2xl font-medium text-gray-800 uppercase px-8 pt-10">
                             Todos os Produtos
                         </h2>

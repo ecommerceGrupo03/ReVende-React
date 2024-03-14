@@ -1,12 +1,25 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { toastAlerta } from '../../util/toastAlerta';
 
 function DropDown() {
+	const navigate = useNavigate();
+
 	const [isOpen, setOpen] = useState(false);
+
+	const { usuario, handleLogout } = useContext(AuthContext);
 
 	const handleDropDown = () => {
 		setOpen(!isOpen);
 	};
+
+	function logout() {
+		handleLogout();
+		toastAlerta("Usuário deslogado com sucesso.", "sucesso");
+		navigate("/login");
+	}
+
 	return (
 		<>
 			{/* Dropdown menu */}
@@ -55,6 +68,20 @@ function DropDown() {
 						>
 							Categorias
 						</Link>
+						{(usuario == null || usuario.token == '')?
+							<Link to="/login" className="block py-2 px-4 hover:bg-gray-100">
+								Login
+							</Link>
+						
+						:<>
+							<Link to="/perfil" className="block py-2 px-4 hover:bg-gray-100">
+								Perfil
+							</Link>
+							<Link to="" onClick={logout} className="block py-2 px-4 hover:bg-gray-100">
+								Sair
+							</Link>
+						</>
+						}
 					</ul>
 				</div>
 			</div>

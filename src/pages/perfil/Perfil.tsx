@@ -1,15 +1,23 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toastAlerta } from '../../util/toastAlerta';
 import { Pencil } from '@phosphor-icons/react';
-import NavBar from '../../components/navBar/NavBar';
+import { buscar } from '../../services/Service';
+import ProdutoDoUsuario from '../../components/produto/produtoDoUsuario/ProdutoDoUsuario';
+import Produto from '../../models/Produto';
 function Perfil() {
     const navigate = useNavigate();
 
     const { usuario } = useContext(AuthContext);
 
     const token = usuario.token;
+
+    const [produtos, setProdutos] = useState<Produto[]>([]);
+
+
+    const [numeroProdutos, setNumeroProdutos] = useState<number>(0);
+
 
     useEffect(() => {
         if (token === '') {
@@ -20,6 +28,22 @@ function Perfil() {
             navigate('/login');
         }
     }, [token]);
+
+    async function buscarProdutos() {
+        await buscar('/produtos/listar', setProdutos);
+    }
+
+    useEffect(() => {
+        buscarProdutos();
+    }, []);
+
+    useEffect(() => {
+        setNumeroProdutos(produtos.filter(produto => produto.usuario.id === usuario.id).length);
+    }, [produtos, usuario.id]);
+
+
+
+
 
     return (
         <>
@@ -78,7 +102,7 @@ function Perfil() {
                                             </div>
                                             <div className="p-1 text-center sm:p-3">
                                                 <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                                    10
+                                                    {numeroProdutos}
                                                 </span>
                                                 <span className="text-sm text-blueGray-400">
                                                     Produtos
@@ -104,7 +128,12 @@ function Perfil() {
                                         {usuario.email}
                                     </div>
                                 </div>
-                                <hr className="my-16 w-1/2 mx-auto hidden lg:block" />
+                                <hr className="my-8 w-[94%] mx-auto hidden lg:block" />
+
+                                <div className="container">
+                                    <h2 className="text-2xl font-medium text-gray-800 uppercase px-8 pt-10">Meus Produtos</h2>
+                                    <ProdutoDoUsuario />
+                                </div>
                             </div>
                         </div>
                     </div>

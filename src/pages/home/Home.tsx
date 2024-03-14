@@ -9,7 +9,7 @@ import Carrossel2 from '../../components/carrossel/Carrossel2';
 const Home = () => {
     return (
         <>
-            <div className="pt-10 flex content-center bg-[#F2F2F2] flex-col items-center justify-center">
+            <div className="pt-6 flex content-center bg-[#F2F2F2] flex-col items-center justify-center">
                 <>
                     {/* banner */}
                     {/* <div className="top-28 w-full bg-gradient-to-r from-[#20432f] to-[#5A6973]">

@@ -36,6 +36,7 @@ function ListaCategoria({ exibirBotoes }: ListaProps) {
 
     return (
         <>
+             <div className='grid justify-items-center '>
             {categorias.length === 0 ? (
                 <div className="flex justify-center align-middle pt-80">
                     <img src="" alt="" />
@@ -69,7 +70,8 @@ function ListaCategoria({ exibirBotoes }: ListaProps) {
                             ))}
                         </div>
                     </div></div>
-            )}
+                )}
+                </div>
         </>
     );
 }

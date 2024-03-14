@@ -23,8 +23,8 @@ function Perfil() {
 
     return (
         <>
-            <main className=" pt-0 sm:pt-10 h-[75vh] profile-page bg-gradient-to-t from-[#85A693] to-[#f2f2f2] text-[#1C3240]">
-                <section className="relative block h-80">
+            <main className="pb-20 sm:pt-10 profile-page bg-gradient-to-t from-[#85A693] to-[#f2f2f2] text-[#1C3240]">
+                <section className="relative block h-64 sm:mt-14">
                     <div className="absolute top-0 w-full h-full bg-center bg-cover"></div>
                     <div
                         className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
@@ -41,9 +41,9 @@ function Perfil() {
                         ></svg>
                     </div>
                 </section>
-                <section className="relative pt-16 pb-16">
-                    <div className="mx-auto px-10">
-                        <div className="relative flex flex-col min-w-0 h-full break-words bg-white w-full shadow-xl rounded-lg -mt-64 ">
+                <section className="relative w-full pt-16 pb-16">
+                    <div className="flex mx-auto px-10 justify-center">
+                        <div className="relative flex flex-col min-w-0 h-full break-words bg-white shadow-xl rounded-lg -mt-64 w-3/4">
                             <div className="px-6">
                                 <div className="flex flex-wrap justify-center">
                                     <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">

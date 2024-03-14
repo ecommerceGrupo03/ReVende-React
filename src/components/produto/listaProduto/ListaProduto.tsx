@@ -31,28 +31,30 @@ function ListaProduto() {
 
     return (
         <>
-            <div className='max-w-[1350px]'>
-            {(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
-                <div className='p-16'>
-                    <Link to="/formularioProduto">
-                        <div className='p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl'>
-                            <p className='text-3xl m-4'>Cadastrar um novo produto </p>
-                            <Plus
-                                size={48}
-                                weight="bold"
-                                color="darkgreen"
-                            />
-                        </div>
-                    </Link>
-                </div>
-            )}
-            {/* <div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 xsm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xsm:w-[300px]">
+            <div className='grid justify-items-center '>
+                {(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
+                    <div className='p-16 w-[75%]'>
+                        <Link to="/formularioProduto">
+                            <div className='p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl'>
+                                <p className='text-3xl m-4'>Cadastrar um novo produto </p>
+                                <Plus
+                                    size={48}
+                                    weight="bold"
+                                    color="darkgreen"
+                                />
+                            </div>
+                        </Link>
+                    </div>
+                )}
+                {/* <div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 xsm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xsm:w-[300px]">
              */}
-             <div className="py-20 w-full h-fit grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
-                {produtos.map((produto) => (
-                    <CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
-                ))}
-            </div></div>
+
+                <div className="py-20 max-w-[1350px] h-fit grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
+                    {produtos.map((produto) => (
+                        <CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
+                    ))}
+                </div>
+            </div>
         </>
     );
 }

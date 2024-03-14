@@ -20,6 +20,7 @@ import Perfil from './pages/perfil/Perfil';
 import { CarrinhoProvider } from './contexts/CarrinhoContext';
 import InfoProduto from './components/produto/modalProduto/InfoProduto';
 import PaginaCategoria from './components/categoria/paginaCategoria/PaginaCategoria';
+import ListaCategoriaPage from './pages/categoria/ListaCategoriaPage';
 
 function App() {
     return (
@@ -73,6 +74,13 @@ function App() {
                                     path="/produtos/categoria/:nome"
                                     element={<PaginaCategoria />}
                                 />
+
+                                <Route
+                                    path="/pageCategoria"
+                                    element={<ListaCategoriaPage exibirBotoes={true}/>}
+                                />
+
+
                             </Routes>
                         </div>
                         <Footer />

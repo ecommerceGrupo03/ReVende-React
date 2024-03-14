@@ -73,7 +73,7 @@ function NavBar() {
 								</li>
 								<li>
 									<Link
-										to="/categorias"
+										to="/pageCategoria"
 										className="hover:text-black hover:underline"
 									>
 										Categorias

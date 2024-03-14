@@ -8,6 +8,7 @@ interface CardCategoriaProps {
     exibirBotoes: boolean;
 }
 
+
 export let currentCategoryId = -1;
 
 function CardCategorias({ categoria, exibirBotoes }: CardCategoriaProps) {

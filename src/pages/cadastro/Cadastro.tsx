@@ -76,13 +76,13 @@ function Cadastro() {
 
   return (
     <>
-      <div className="w-full font-bold flex justify-center ">
+      <div className="w-full font-bold flex justify-center">
 
         <form
-          className="flex justify-center items-center flex-col w-2/3 gap-3"
+          className="flex py-5 lg:py-20 justify-center items-center flex-col w-1/2 gap-3"
           onSubmit={cadastrarNovoUsuario}
         >
-          <h2 className="text-[#1C3240] text-5xl">Cadastrar</h2>
+          <h2 className="text-[#1C3240] text-2xl lg:text-5xl ">Cadastrar</h2>
           <div className="flex flex-col w-full">
             <label htmlFor="nome">Nome</label>
             <input

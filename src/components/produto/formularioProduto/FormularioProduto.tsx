@@ -252,7 +252,7 @@ function FormularioProduto() {
               <>
                 <option
                   value={categoria.id}
-                  selected={categoria.id === produto.categoria.id}
+                  // selected={categoria.id === produto.categoria.id}
                 >
                   {categoria.nome}
                 </option>

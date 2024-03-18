@@ -33,9 +33,9 @@ function ListaProduto() {
     <>
       <div className='grid justify-items-center'>
         {(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
-          <div className='p-16 max-w-[2000px]'>
+          <div className='p-16 mx-auto w-[80%]'>
             <Link to="/formularioProduto">
-              <div className='p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl'>
+              <div className='p-8 flex justify-center border bg-[#F2F2F2] hover:bg-[#85A693] items-center rounded-2xl'>
                 <p className='text-3xl m-4  '>Cadastrar um novo produto </p>
                 <Plus
                   size={48}

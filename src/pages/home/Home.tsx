@@ -23,8 +23,10 @@ const Home = () => {
           {/* ./banner */}
 
           {/* <Carrossel /> */}
-          <div className='w-[80%]'>
-            <Carrossel2 />
+          <div className="w-[80%] max-w-[2000px]">
+            <div>
+              <Carrossel2 />
+            </div>
           </div>
 
           {/* categories */}
@@ -32,16 +34,16 @@ const Home = () => {
             <h2 className="text-2xl font-medium text-gray-800 uppercase pt-10 px-8">
               Categorias
             </h2>
+            <ListaCategoria exibirBotoes={false} />
           </div>
-          <ListaCategoria exibirBotoes={false} />
 
           {/* ./product */}
           <div className="w-[80%] max-w-[2000px]">
             <h2 className="text-2xl font-medium text-gray-800 uppercase pt-10 px-8">
               Todos os Produtos
             </h2>
+            <ListaProduto />
           </div>
-          <ListaProduto />
           {/* ./características */}
           <div className="container pt-14 pb-24">
             <div className="w-10/12 grid grid-cols-1 md:grid-cols-3 gap-20 mx-auto justify-center">

@@ -30,7 +30,7 @@ function Carrossel2() {
     useEffect(() => {
         setInterval(() => {
             nextSlide();
-        }, 4000);
+        }, 5000);
     }, [currentIndex]);
 
     return (

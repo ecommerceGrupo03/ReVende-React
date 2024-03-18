@@ -46,7 +46,7 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
       ) : (
         <div>
           {usuario.email == "root@root.com" && exibirBotoes && (
-            <div className="p-16">
+            <div className="p-16 mx-auto w-[80%]">
               <Link to="/formularioCategoria">
                 <div className="p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl">
                   <p className="text-3xl m-4">Cadastrar uma nova categoria </p>
@@ -57,14 +57,8 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
           )}
           <div>
             <div
-              className={`py-10 grid grid-cols-8
-               gap-y-16 content-stretch justify-items-center`}
+              className={`mx-auto w-[80%] py-10 grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4`}
             >
-
-                {/* ${
-                categorias.length > 8 ? 8 : categorias.length */}
-
-              {/* Buscar produtos dentro da categoria */}
               {categorias.map((categoria) => (
                 <>
                   <CardCategorias
@@ -76,7 +70,7 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
                 </>
               ))}
             </div>
-            <div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mx-auto w-[78%] justify-items-center py-10 grid grid-cols-2 gap-y-16 xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
               {produtos.map((produto) => (
                 <CardProduto
                   key={produto.id}

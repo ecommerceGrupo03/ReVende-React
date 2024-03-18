@@ -130,7 +130,7 @@ function Perfil() {
                 </div>
                 <hr className="my-8 mx-auto lg:block" />
 
-                <div className="">
+                <div className="flex-col justify-center">
                   <h2 className="text-2xl font-medium text-gray-800 uppercase">Meus Produtos</h2>
                   <ProdutoDoUsuario />
                 </div>

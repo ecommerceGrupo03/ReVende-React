@@ -42,7 +42,7 @@ function ListaCategoria({ exibirBotoes }: ListaProps) {
                     <img src="" alt="" />
                 </div>
             ) : (
-                <div className='max-w-[1350px]'>
+                <div className='mx-auto w-[80%]'>
                     {usuario.email == 'root@root.com' && exibirBotoes && (
                         <div className='p-16'>
                             <Link to="/formularioCategoria">

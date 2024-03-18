@@ -19,7 +19,7 @@ function CardCategoriaPage({
 
   return (
     <button onClick={onClick}>
-      <div className="bg-white border shadow-xl rounded-2xl overflow-hidden justify-center">
+      <div className="bg-white border shadow-xl rounded-2xl overflow-hidden justify-center min-w-[200px]">
         {usuario.email == "root@root.com" && exibirBotoes && (
           <div className="flex gap-4 px-8 mt-6 justify-between">
             <div>
@@ -42,13 +42,15 @@ function CardCategoriaPage({
         {/* <div className="justify-center flex align-center  bg-white box-shadow: 0 1px 2px 0 ">
           <Image size={100} color="gray-900" weight="thin" />
         </div> */}
-        <div className="container h-full pt-8 pb-6  flex items-center justify-around rounded-lg shadow w-40 ">
-          <header className="font-semibold text-gray-900 bg-white text-xl">
-            {categoria.nome}
-          </header>
-          {/* <p className="text-sm text-gray-600 bg-white">
+        <div>
+          <div className="container h-full pt-8 pb-6 flex items-center justify-around rounded-lg shadow w-full ">
+            <header className="font-semibold text-gray-900 bg-white text-xl">
+              {categoria.nome}
+            </header>
+            {/* <p className="text-sm text-gray-600 bg-white">
             {categoria.descricao}
           </p> */}
+          </div>
         </div>
       </div>
     </button>

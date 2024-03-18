@@ -99,27 +99,29 @@ function NavBar() {
 										</span>
 									)}
 								</Link>
-								{/* <!-- Perfil     --> */}
-								<Link
-									to={usuario.id !== 0 ? '/perfil' : '/login'}
-									className="flex items-center "
-								>
-									<UserCircle
-										size={26}
-										weight="bold"
-										className="text-[#1C3240] hover:text-[#111f27]"
-									/>
-								</Link>
-
-								{usuario.id !== 0 && (
-									<Link to="" onClick={logout} className="">
-										<SignOut
+								<div className="flex space-x-5 items-center justify-end hidden lg:flex 2md:flex">
+									{/* <!-- Perfil     --> */}
+									<Link
+										to={usuario.id !== 0 ? '/perfil' : '/login'}
+										className="flex items-center "
+									>
+										<UserCircle
 											size={26}
 											weight="bold"
 											className="text-[#1C3240] hover:text-[#111f27]"
 										/>
 									</Link>
-								)}
+
+									{usuario.id !== 0 && (
+										<Link to="" onClick={logout} className="">
+											<SignOut
+												size={26}
+												weight="bold"
+												className="text-[#1C3240] hover:text-[#111f27]"
+											/>
+										</Link>
+									)}
+								</div>
 							<a className="navbar-burger self-center 2md:hidden" href="#">
 								<DropDown />
 							</a>

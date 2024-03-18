@@ -30,7 +30,7 @@ function ProdutoDoUsuario() {
     }, [produtos, usuario.id]);
 
     return (
-        <div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {produtos.filter(produto => produto.usuario.id === usuario.id).map((produto, index) => (
                 <CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
             ))}

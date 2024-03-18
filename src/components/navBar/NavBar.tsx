@@ -81,7 +81,7 @@ function NavBar() {
 								</li>
 							</ul>
 							{/* <!-- Header Icons --> */}
-							<div className="hidden 2md:flex space-x-5 items-center justify-end">
+							<div className="xsm:flex space-x-5 items-center justify-end">
 								<Link
 									to=""
 									className="flex items-center "
@@ -120,11 +120,11 @@ function NavBar() {
 										/>
 									</Link>
 								)}
-							</div>
-							{/* {ícone hamburguer} */}
 							<a className="navbar-burger self-center 2md:hidden" href="#">
 								<DropDown />
 							</a>
+							</div>
+							{/* {ícone hamburguer} */}
 							{/* <!-- Responsive navbar --> */}
 						</div>
 					</nav>

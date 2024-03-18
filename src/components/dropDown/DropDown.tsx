@@ -74,9 +74,9 @@ function DropDown() {
 							</Link>
 						
 						:<>
-							<Link to="/perfil" className="block py-2 px-4 hover:bg-gray-100">
+							{/* <Link to="/perfil" className="block py-2 px-4 hover:bg-gray-100">
 								Perfil
-							</Link>
+							</Link> */}
 							<Link to="" onClick={logout} className="block py-2 px-4 hover:bg-gray-100">
 								Sair
 							</Link>

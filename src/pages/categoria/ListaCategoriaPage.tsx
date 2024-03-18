@@ -48,7 +48,7 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
           {usuario.email == "root@root.com" && exibirBotoes && (
             <div className="p-16">
               <Link to="/formularioCategoria">
-                <div className="p-8 flex items-center justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl">
+                <div className="p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl">
                   <p className="text-3xl m-4">Cadastrar uma nova categoria </p>
                   <Plus size={48} weight="bold" color="darkgreen" />
                 </div>

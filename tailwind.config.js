@@ -1,15 +1,19 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,html}', '*.{js,ts,jsx,tsx}',
-	"./node_modules/tw-elements/js/**/*.js"],
+	content: [
+		'./index.html',
+		'./src/**/*.{js,ts,jsx,tsx,html}',
+		'*.{js,ts,jsx,tsx}',
+		'./node_modules/tw-elements/js/**/*.js',
+	],
 	theme: {
 		extend: {},
 		screens: {
-			'xsm': '300px',
+			xsm: '300px',
 			// => @media (min-width: 300px) { ... }
-			
-            sm: '640px',
+
+			sm: '640px',
 			// => @media (min-width: 640px) { ... }
 
 			md: '768px',
@@ -30,7 +34,6 @@ export default {
 	},
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
-		require("tw-elements/plugin.cjs"),
-]
-
+		require('tw-elements/plugin.cjs'),
+	],
 };

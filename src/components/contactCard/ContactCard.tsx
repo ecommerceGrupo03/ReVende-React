@@ -19,24 +19,24 @@ function ContactCard({
 	github,
 }: ContactProps) {
 	return (
-		<div className="flex justify-center grid-cols-3 bg-gradient-to-l from-[#568C6D] to-[#B5C8BD] shadow-xl rounded-3xl items-center mb-10 container h-96 w-[1300px] gap-24 ">
-			<div className="flex">
+		<div className="xsxm:flex-col justify-center bg-gradient-to-l from-[#568C6D] to-[#B5C8BD] shadow-xl rounded-3xl items-center mb-10 container w-full sm:flex">
+			<div className="flex justify-center px-4 pt-4">
 				<img
 					src={imagem}
 					alt={nome}
-					className="rounded-full size-64 object-cover"
+					className="rounded-full object-cover xsm:size-40 sm:size-52 md:size-56"
 				/>
 			</div>
 
-			<div className="align-center">
+			<div className="align-center p-4">
 				<div className="flex-col justify-center">
-					<h4 className="text-3xl flex justify-center my-4 mx-4 text-wrap max-w-xl">
+					<h4 className="text-3xl flex justify-center mb-4 mx-4 text-wrap max-w-xl">
 						{nome}
 					</h4>
 
-					<hr className="border-gray-700 border-2 w-full" />
+					<hr className="border-gray-700 border-2 w-2/3 mx-auto" />
 
-					<h5 className="text-lg flex justify-center my-4 mx-4 text-wrap max-w-xl">
+					<h5 className="text-lg flex justify-center xsm:text-center my-4 mx-4 text-wrap max-w-xl font-medium">
 						{cargo}
 					</h5>
 
@@ -47,7 +47,7 @@ function ContactCard({
 
 				<hr className="border-gray-700 border-1 w-full" />
 
-				<div className="flex justify-center gap-2 m-4">
+				<div className="flex justify-center gap-2 p-4">
 					<Link target="_blank" to={linkedin}>
 						<LinkedinLogo
 							size={40}

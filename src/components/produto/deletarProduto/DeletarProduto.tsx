@@ -75,7 +75,7 @@ function DeletarProduto() {
 			<div className='flex content-center flex-col items-center justify-center mt-8'>
 				<CardProduto produto={produto} exibirBotoes={false}/>
 
-				<div className="flex p-5">
+				<div className="flex p-5 space-x-2">
 				<button
 					className=" text-slate-900 bg-[#85A693] hover:bg-[#568C6D] w-full py-2 font-bold px-4 rounded"
 					onClick={retornar}

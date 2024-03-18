@@ -6,6 +6,7 @@ import Categoria from "../../../models/Categoria";
 import { buscarAtravesId, deletar } from "../../../services/Service";
 import { toastAlerta } from "../../../util/toastAlerta";
 import { Image } from "@phosphor-icons/react";
+import CardCategoria from "../cardCategoria/CardCategoria";
 
 function DeletarCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -65,40 +66,33 @@ function DeletarCategoria() {
     retornar();
   }
   return (
-    <div className="py-36">
-      <div className="container w-1/3 mx-auto">
-        <p className="text-center font-semibold pb-6 pt-10">
-          Você tem certeza de que deseja apagar a categoria a seguir?
-        </p>
+    <div className="py-40">
+		<div className="container w-1/3 mx-auto">
+			<h1 className="text-4xl text-center my-4">Deletar categoria</h1>
 
-        <div className="bg-white">
-          <div className="box-shadow: 0 1px 2px 0  justify-center  flex align-center  bg-white box-shadow: 0 1px 2px 0 ">
-            <Image size={100} color="#8e3333 " />
-          </div>
+			<p className="text-center font-semibold">
+        Você tem certeza de que deseja apagar a categoria a seguir?
+			</p>
+			<div className='flex content-center flex-col items-center justify-center mt-8'>
+				<CardCategoria categoria={categoria} exibirBotoes={false}/>
 
-          <header className="pt-6 pl-6  text-sm text-gray-600 bg-white">
-            {categoria.nome}
-          </header>
-          <p className="pl-6 pb-6 text-base font-semibold text-gray-900 bg-white">
-            {categoria.descricao}
-          </p>
-          <div className="flex p-5">
-            <button
-              className="text-white bg-blue-500 hover:bg-blue-600  w-full py-2 font-bold"
-              onClick={retornar}
-            >
-              Não
-            </button>
-            <button
-              className="w-full text-white bg-[#FF4C4F] hover:bg-[#B91C1C] flex items-center justify-center font-bold"
-              onClick={deletarCategoria}
-            >
-              Sim
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+				<div className="flex p-5 space-x-2">
+				<button
+					className=" text-slate-900 bg-[#85A693] hover:bg-[#568C6D] w-full py-2 font-bold px-4 rounded"
+					onClick={retornar}
+				>
+					Não
+				</button>
+				<button
+					className="w-full text-white bg-[#FF4C4F] hover:bg-[#B91C1C] flex items-center justify-center font-bold px-4 rounded"
+					onClick={deletarCategoria}
+				>
+					Sim
+				</button>
+			</div>
+			</div>
+		</div>
+	</div>
   );
 }
 

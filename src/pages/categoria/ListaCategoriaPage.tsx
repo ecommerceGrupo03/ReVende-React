@@ -57,7 +57,7 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
           )}
           <div>
             <div
-              className={`mx-auto w-[80%] py-10 grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4`}
+              className={`mx-auto w-[80%] py-20 h-fit grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4`}
             >
               {categorias.map((categoria) => (
                 <>
@@ -70,7 +70,7 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
                 </>
               ))}
             </div>
-            <div className="mx-auto w-[78%] justify-items-center py-10 grid grid-cols-2 gap-y-16 xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
+            <div className="mx-auto w-[75%] justify-items-center py-10 grid grid-cols-2 gap-y-16 xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
               {produtos.map((produto) => (
                 <CardProduto
                   key={produto.id}

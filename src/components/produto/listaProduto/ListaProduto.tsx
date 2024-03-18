@@ -33,7 +33,7 @@ function ListaProduto() {
     <>
       <div className='grid justify-items-center'>
         {(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
-          <div className='p-16  mx-auto w-[80%]'>
+          <div className='p-16 max-w-[2000px]'>
             <Link to="/formularioProduto">
               <div className='p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl'>
                 <p className='text-3xl m-4  '>Cadastrar um novo produto </p>
@@ -47,7 +47,7 @@ function ListaProduto() {
           </div>
         )}
         <div className=''>
-          <div className="mx-auto w-[80%] py-20 h-fit grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
+          <div className="py-20 h-fit grid grid-cols-2 gap-y-16 justify-items-center xsm:grid-cols-1 sm:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4">
             {produtos.map((produto) => (
               <CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
             ))}

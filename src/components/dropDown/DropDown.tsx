@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toastAlerta } from '../../util/toastAlerta';
+import { Books, House, Package, Question, SignOut, UserCircle } from '@phosphor-icons/react';
 
 function DropDown() {
 	const navigate = useNavigate();
@@ -54,31 +55,52 @@ function DropDown() {
 							to="/home"
 							className="block py-2 px-4 hover:bg-gray-100 hover:rounded-t-lg"
 						>
-							Home
+							<div className='flex items-center space-x-2'>
+								<House/>
+								<div>Home</div>
+							</div>
 						</Link>
 						<Link to="/about" className="block py-2 px-4 hover:bg-gray-100">
-							Sobre
+							<div className='flex items-center space-x-2'>
+								<Question/>
+								<div>Sobre</div>
+							</div>
 						</Link>
 						<Link to="/produtos" className="block py-2 px-4 hover:bg-gray-100">
-							Produtos
+						<div className='flex items-center space-x-2'>
+								<Package/>
+								<div>Produtos</div>
+							</div>
 						</Link>
 						<Link
 							to="/pageCategoria"
 							className="block py-2 px-4 hover:bg-gray-100"
 						>
-							Categorias
+							<div className='flex items-center space-x-2'>
+								<Books/>
+								<div>Categorias</div>
+							</div>
 						</Link>
 						{(usuario == null || usuario.token == '')?
 							<Link to="/login" className="block py-2 px-4 hover:bg-gray-100">
-								Login
+								<div className='flex items-center space-x-2'>
+									<UserCircle/>
+									<div>Login</div>
+								</div>
 							</Link>
 						
 						:<>
-							{/* <Link to="/perfil" className="block py-2 px-4 hover:bg-gray-100">
-								Perfil
-							</Link> */}
+							<Link to="/perfil" className="block py-2 px-4 hover:bg-gray-100">
+								<div className='flex items-center space-x-2'>
+									<UserCircle/>
+									<div>Perfil</div>
+								</div>
+							</Link>
 							<Link to="" onClick={logout} className="block py-2 px-4 hover:bg-gray-100">
-								Sair
+								<div className='flex items-center space-x-2'>
+									<SignOut/>
+									<div>Sair</div>
+								</div>
 							</Link>
 						</>
 						}

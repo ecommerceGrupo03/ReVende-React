@@ -6,3 +6,10 @@
 	object-fit: cover;
     object-position: center;
 }
+
+.popup-overlay { 
+    background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+    background: transparent;
+}

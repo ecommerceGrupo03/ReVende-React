@@ -7,6 +7,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { buscar } from "../../services/Service";
 import { toastAlerta } from "../../util/toastAlerta";
 import CardCategorias from "./CardCategoriaPage";
+import { TailSpin } from "react-loader-spinner";
 
 
 interface ListaProps {
@@ -17,13 +18,16 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
   const [categorias, setCategorias] = useState([]);
   const [produtos, setProdutos] = useState([]);
 
+  const [carregando, setCarregando] = useState<boolean>(false);
+
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
   async function buscarCategorias() {
     try {
+      setCarregando(true);
       await buscar("/categorias/listar", setCategorias);
-
+      setCarregando(false);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error.toString().includes("403")) {
@@ -39,11 +43,20 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
 
   return (
     <>
-      {categorias.length === 0 ? (
-        <div className="flex justify-center align-middle pt-80">
-          <img src="" alt="" />
-        </div>
-      ) : (
+       {carregando ? (
+          <div className='flex p-8 justify-center items-center'>
+            <TailSpin
+              visible={true}
+              height="150"
+              width="150"
+              color="#568C6D"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+        ) : (
         <div>
           {usuario.email == "root@root.com" && exibirBotoes && (
             <div className="p-16 mx-auto w-[80%]">

@@ -3,14 +3,20 @@ import CardProduto from '../cardProduto/CardProduto';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { buscar } from '../../../services/Service';
 import Produto from '../../../models/Produto';
+import { TailSpin } from 'react-loader-spinner';
 
 function ProdutoDoUsuario() {
     const { usuario, handleLogout } = useContext(AuthContext);
+    
     const [produtos, setProdutos] = useState<Produto[]>([]);
     const [numeroProdutos, setNumeroProdutos] = useState<number>(0);
 
+    const [carregando, setCarregando] = useState<boolean>(false);
+
     async function buscarProdutos() {
+        setCarregando(true);
         await buscar('/produtos/listar', setProdutos);
+        setCarregando(false);
     }
 
     useEffect(() => {
@@ -30,12 +36,29 @@ function ProdutoDoUsuario() {
     }, [produtos, usuario.id]);
 
     return (
-        <div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {produtos.filter(produto => produto.usuario.id === usuario.id).map((produto, index) => (
-                <CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
-            ))}
-            
-        </div>
+        <>
+            {(carregando) ? (
+                <div className='pt-8'>
+                    <TailSpin
+                    visible={true}
+                    height="150"
+                    width="150"
+                    color="#568C6D"
+                    ariaLabel="tail-spin-loading"
+                    radius="1"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    />
+                </div>
+            ) : (
+                <div className="justify-items-center py-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {produtos.filter(produto => produto.usuario.id === usuario.id).map((produto, index) => (
+                        <CardProduto key={produto.id} produto={produto} exibirBotoes={true} />
+                    ))}
+                    
+                </div>
+            )}
+        </>
     );
 }
 

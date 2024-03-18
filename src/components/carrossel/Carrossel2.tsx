@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
@@ -26,6 +26,12 @@ function Carrossel2() {
     const goToSlide = (slideIndex) => {
         setCurrentIndex(slideIndex);
     };
+
+    useEffect(() => {
+        setInterval(() => {
+            nextSlide();
+        }, 4000);
+    }, [currentIndex]);
 
     return (
         <div className='h-[276px] w-full m-auto pb-16 px-4 relative group sm:h-[376px] md:h-[376px] lg:h-[476px] xl:h-[476px] 2xl:h-[576px]'>

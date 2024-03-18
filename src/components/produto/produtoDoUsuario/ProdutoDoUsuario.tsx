@@ -38,7 +38,7 @@ function ProdutoDoUsuario() {
     return (
         <>
             {(carregando) ? (
-                <div className='pt-8'>
+                <div className='flex p-8 justify-center items-center'>
                     <TailSpin
                     visible={true}
                     height="150"

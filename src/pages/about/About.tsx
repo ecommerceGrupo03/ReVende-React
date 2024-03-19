@@ -52,7 +52,7 @@ const About = () => {
 						</p>
 					</div>
 					<div className="px-8">
-						<a href="URL_DO_SITE_ALVO" target="_blank" rel="noopener noreferrer">
+						<a href="https://brasil.un.org/pt-br/sdgs/12" target="_blank" rel="noopener noreferrer">
 							<img
 								className="container object-scale-down h-48 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full"
 								src={odsObjetivo12}

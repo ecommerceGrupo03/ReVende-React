@@ -22,9 +22,6 @@ function NavBar() {
   }
 
   function handleCarrinhoOpen() {
-    if (usuario.id === 0) {
-      return toastAlerta("Você precisa estar logado", "info");
-    }
     if (carrinhoOpen) {
       setCarrinhoOpen(false);
     } else {

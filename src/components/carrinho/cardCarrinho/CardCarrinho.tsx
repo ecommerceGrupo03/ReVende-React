@@ -32,7 +32,7 @@ function CardCarrinho({
 
       <div className="ml-4 flex flex-1 flex-col">
         <div>
-          <div className="flex justify-between text-base font-medium text-gray-900">
+          <div className="flex justify-between text-base font-medium text-[#1C3240]">
             <h3>
               <Link to={`/editarProduto/${id}`}>{nome}</Link>
             </h3>
@@ -47,7 +47,7 @@ function CardCarrinho({
             <button
               type="button"
               onClick={() => RemoveToCart(id)}
-              className="font-medium text-indigo-600 hover:text-indigo-500"
+              className="font-medium text-[#568C6D] hover:text-[#85A693]"
             >
               Remover
             </button>

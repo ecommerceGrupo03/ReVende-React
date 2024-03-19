@@ -104,7 +104,7 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
                             </Link>
                         ) : (
                             <label className="text-slate-100 bg-red-500 w-full flex items-center justify-center gap-2 py-2">
-                                <i className="mdi mdi-cart-off"/>Fora de Estoque{" "}
+                                <i className="mdi mdi-cart-off"/> Fora de Estoque{" "}
                             </label>
                         )}
                     </div>

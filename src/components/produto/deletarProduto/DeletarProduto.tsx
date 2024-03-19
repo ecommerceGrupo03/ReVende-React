@@ -77,13 +77,13 @@ function DeletarProduto() {
 
 				<div className="flex p-5 space-x-2">
 				<button
-					className=" text-slate-900 bg-[#85A693] hover:bg-[#568C6D] w-full py-2 font-bold px-4 rounded"
+					className=" text-slate-900 bg-[#85A693] hover:bg-[#568C6D] w-full py-2 font-bold px-8 rounded"
 					onClick={retornar}
 				>
 					Não
 				</button>
 				<button
-					className="w-full text-white bg-[#FF4C4F] hover:bg-[#B91C1C] flex items-center justify-center font-bold px-4 rounded"
+					className="w-full text-white bg-[#FF4C4F] hover:bg-[#B91C1C] flex items-center justify-center font-bold px-8 rounded"
 					onClick={deletarProduto}
 				>
 					Sim

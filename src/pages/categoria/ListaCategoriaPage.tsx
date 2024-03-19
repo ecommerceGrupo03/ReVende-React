@@ -62,7 +62,7 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
             <div className="p-16 mx-auto w-[80%]">
               <Link to="/formularioCategoria">
                 <div className="p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl">
-                  <p className="text-3xl m-4">Cadastrar uma nova categoria </p>
+                  <p className="text-3xl m-4 text-[#1C3240]">Cadastrar uma nova categoria </p>
                   <Plus size={48} weight="bold" color="darkgreen" />
                 </div>
               </Link>

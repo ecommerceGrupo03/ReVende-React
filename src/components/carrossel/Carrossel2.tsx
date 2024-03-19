@@ -11,7 +11,20 @@ function Carrossel2() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const [shouldUpdate, setShouldUpdate] = useState(true);
+    const [shouldUpdate, setShouldUpdate] = useState(false);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setShouldUpdate(true);
+        }, 6000)
+
+        if(shouldUpdate){
+            nextSlide();
+            setShouldUpdate(false);
+        } 
+
+        return () => clearInterval(intervalId);
+    }, [shouldUpdate]);
 
     const prevSlide = () => {
         const isFirstSlide = currentIndex === 0;
@@ -29,18 +42,13 @@ function Carrossel2() {
         setCurrentIndex(slideIndex);
     };
 
-    useEffect(() => {
-        setInterval(() => {
-            nextSlide();
-        }, 6000);
-    }, [currentIndex]);
-
     return (
         <div className='h-[276px] w-full m-auto pb-16 px-4 relative group sm:h-[376px] md:h-[376px] lg:h-[476px] xl:h-[476px] 2xl:h-[576px]'>
             <div
                 data-hs-carousel='{
                     "loadingClasses": "opacity-0",
-                    "isAutoPlay": true
+                    "isAutoPlay: true",
+                    "slideTime" : 1000" 
                   }'
                 onClick={prevSlide}
                 style={{ backgroundImage: `url(${slides[currentIndex]})` }}

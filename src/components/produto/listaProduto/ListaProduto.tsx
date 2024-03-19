@@ -36,7 +36,7 @@ function ListaProduto() {
 
   return (
     <>
-      <div className='grid justify-items-center'>
+      <div className='flex-col justify-center'>
         {(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
           <div className='p-16 mx-auto w-[80%]'>
             <Link to="/formularioProduto">

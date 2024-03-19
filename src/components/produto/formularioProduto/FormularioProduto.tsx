@@ -263,7 +263,7 @@ function FormularioProduto() {
         <button
           disabled={carregandoCategoria}
           type="submit"
-          className="rounded disabled:bg-blue-200 bg-blue-500 hover:bg-blue-600 text-white font-bold w-1/2 mx-auto block py-2"
+          className="rounded w-28 disabled:bg-blue-200 bg-blue-500 hover:bg-blue-600 text-white font-bold sm:w-1/2 mx-auto block py-2"
         >
           {carregandoCategoria ? (
             <span>Carregando...</span>
@@ -275,7 +275,7 @@ function FormularioProduto() {
         </button>
 
         <button
-          className="rounded text-white-100 bg-[#85A693] hover:bg-[#568C6D] w-1/4 py-2 mx-auto block mt-4"
+          className="w-20 rounded text-white-100 bg-[#85A693] hover:bg-[#568C6D] sm:w-1/4 py-2 mx-auto block mt-4"
           onClick={retornar}
         >
           Voltar

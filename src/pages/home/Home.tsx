@@ -23,7 +23,7 @@ const Home = () => {
           {/* ./banner */}
 
           {/* <Carrossel /> */}
-          <div className="w-[80%] max-w-[2000px]">
+          <div className="w-full">
             <div>
               <Carrossel2 />
             </div>

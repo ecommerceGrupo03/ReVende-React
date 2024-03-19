@@ -43,27 +43,27 @@ function ListaCategoriaPage({ exibirBotoes }: ListaProps) {
 
   return (
     <>
-       {carregando ? (
-          <div className='flex p-8 justify-center items-center'>
-            <TailSpin
-              visible={true}
-              height="150"
-              width="150"
-              color="#568C6D"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-          </div>
-        ) : (
+      {carregando ? (
+        <div className='flex p-8 justify-center items-center'>
+          <TailSpin
+            visible={true}
+            height="150"
+            width="150"
+            color="#568C6D"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
+      ) : (
         <div>
           {usuario.email == "root@root.com" && exibirBotoes && (
-            <div className="p-16 mx-auto w-[80%]">
+            <div className="pt-16 mx-auto w-[80%]">
               <Link to="/formularioCategoria">
-                <div className="p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl">
-                  <p className="text-3xl m-4 text-[#1C3240]">Cadastrar uma nova categoria </p>
-                  <Plus size={48} weight="bold" color="darkgreen" />
+                <div className="p-4 sm:p-8 justify-center border bg-[#F2F2F2] hover:bg-[#85A693] flex items-center rounded-2xl">
+                  <p className="text-2xl sm:text-3xl m-4 text-[#1C3240]">Cadastrar uma nova categoria </p>
+                  <Plus size={40} weight="bold" color="darkgreen" />
                 </div>
               </Link>
             </div>

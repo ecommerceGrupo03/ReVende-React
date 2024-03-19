@@ -44,7 +44,7 @@ function Carrossel2() {
                   }'
                 onClick={prevSlide}
                 style={{ backgroundImage: `url(${slides[currentIndex]})` }}
-                className='hs-carousel-slide w-full h-full rounded-2xl bg-center bg-contain bg-no-repeat duration-500 auto'
+                className='hs-carousel-slide w-full h-full bg-center bg-contain bg-no-repeat duration-500 auto'
             >
                 {/* Left Arrow */}
                 <div className='hidden group-hover:hidden h-full absolute top-[45%] -translate-x-0 translate-y-[-45%] left-10 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>

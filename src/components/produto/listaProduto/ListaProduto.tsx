@@ -36,14 +36,14 @@ function ListaProduto() {
 
   return (
     <>
-      <div className='grid justify-items-center'>
+      <div className='flex-col justify-center'>
         {(usuario.email == 'root@root.com' || usuario.cnpj) != '' && (
-          <div className='p-16 mx-auto w-[80%]'>
+          <div className='pt-16 mx-auto w-[80%]'>
             <Link to="/formularioProduto">
-              <div className='p-8 flex justify-center border bg-[#F2F2F2] hover:bg-[#85A693] items-center rounded-2xl'>
-                <p className='text-3xl m-4 text-[#1C3240]'>Cadastrar um novo produto </p>
+              <div className='p-4 sm:p-8 flex justify-center border bg-[#F2F2F2] hover:bg-[#85A693] items-center rounded-2xl'>
+                <p className='text-2xl sm:text-3xl m-4 text-[#1C3240]'>Cadastrar um novo produto </p>
                 <Plus
-                  size={48}
+                  size={40}
                   weight="bold"
                   color="darkgreen"
                 />

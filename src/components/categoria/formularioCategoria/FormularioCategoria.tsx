@@ -137,14 +137,14 @@ function FormularioCategoria() {
             		}
 				</div>
 				<button
-					className="rounded text-slate-100 bg-blue-500 hover:bg-blue-600 w-1/2 py-2 mx-auto block"
+					className="rounded text-slate-100 bg-blue-500 hover:bg-blue-600 w-28 sm:w-1/2 py-2 mx-auto block"
 					type="submit"
 				>
 					{id === undefined ? 'Cadastrar' : 'Editar'}
 				</button>
 
 				<button
-					className="rounded text-white-100 bg-[#85A693] hover:bg-[#568C6D] w-1/4 py-2 mx-auto block mt-4"
+					className="w-20 rounded text-white-100 bg-[#85A693] hover:bg-[#568C6D] sm:w-1/4 py-2 mx-auto block mt-4"
 					onClick={retornar}
 				>
 					Voltar

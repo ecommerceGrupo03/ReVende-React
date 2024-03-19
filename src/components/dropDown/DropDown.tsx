@@ -46,7 +46,7 @@ function DropDown() {
 
 				<div
 					id="dropdown"
-					className={`z-10 w-44 bg-white rounded-lg divide-y divide-gray-100 drop-shadow-2xl absolute right-9 top-[70px] ${
+					className={`z-10 w-44 bg-white rounded-lg divide-y divide-gray-100 absolute right-9 top-[70px] ${
 						isOpen ? 'inline' : 'hidden'
 					}`}
 				>

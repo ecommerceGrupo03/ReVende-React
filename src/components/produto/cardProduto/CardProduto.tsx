@@ -63,7 +63,7 @@ function CardProduto({ produto, exibirBotoes }: CardProdutoProps) {
                                 {produto.categoria?.nome}
                             </p>
                         </div>
-                        <p className="text-sm font-medium text-gray-900">
+                        <p className="text-sm font-medium text-gray-900 py-2 pl-2">
                             R$ {produto.preco}
                         </p>
                     </div>

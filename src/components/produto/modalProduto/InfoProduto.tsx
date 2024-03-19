@@ -24,6 +24,8 @@ function InfoProduto({produto, fecharInfo}: InfoProdutoProps) {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
+  const disponivel = (produto.quantidade > 0);
+
   return (
     <>
       <div className="min-w-screen min-h-screen bg-white-300 flex items-center overflow-hidden relative">
@@ -43,12 +45,15 @@ function InfoProduto({produto, fecharInfo}: InfoProdutoProps) {
             </div>
             <div className="w-full md:w-1/2 px-10">
               <div className="mb-5">
-                <h1 className="font-bold uppercase text-3xl mb-5 xsm:text-xl md:text-2xl">
+                <h1 className="font-bold uppercase text-5xl mb-5 xsm:text-xl md:text-2xl">
                   {produto.nome}
                 </h1>
-                <p className="text-lg xsm:text-sm md:text-base">{produto.descricao}</p>
+                <p className="text-2xl xsm:text-sm md:text-base mb-10">{produto.descricao}</p>
                 <div className="mt-4">
                   <p className="text-xl xsm:text-base md:text-lg">Vendedor: {produto.usuario.nome}</p>
+                </div>
+                <div className="mt-4">
+                  <p className="text-lg xsm:text-base md:text-lg">Unidades em Estoque: {produto.quantidade}</p>
                 </div>
               </div>
               <div>
@@ -56,18 +61,25 @@ function InfoProduto({produto, fecharInfo}: InfoProdutoProps) {
                   <span className="text-2xl leading-none align-baseline">
                     R$
                   </span>
-                  <span className="font-bold text-5xl leading-none align-baseline">
+                  <span className="px-2 font-bold text-3xl leading-none align-baseline">
                     {produto.preco}
                   </span>
                   {/* <span className="text-2xl leading-none align-baseline">.99</span> */}
                 </div>
                 <div className="inline-block align-bottom">
-                  <Link to="" onClick={handleClickAdicionarAoCarrinho}>
-                    <button className="bg-blue-500 opacity-75 hover:opacity-100 text-white rounded-full px-10 py-2 font-semibold">
-                      <i className="mdi mdi-cart -ml-2 mr-2"></i>
-                      Adicionar ao carrinho
-                    </button>
-                  </Link>
+                  {(disponivel) ? (
+                    <Link to="" onClick={handleClickAdicionarAoCarrinho}>
+                      <button className="bg-blue-500 opacity-75 hover:opacity-100 text-white rounded-full px-10 py-2 font-semibold">
+                        <i className="mdi mdi-cart mx-2"/>
+                        Adicionar ao carrinho
+                      </button>
+                    </Link>
+                  ) : (
+                    <button className="bg-red-500 text-white rounded-full px-10 py-2 font-semibold">
+                        <i className="mdi mdi-cart-off mx-2"/>
+                        Fora de Estoque
+                      </button>
+                  )}
                 </div>
               </div>
             </div>

@@ -29,10 +29,10 @@ function InfoProduto({produto, fecharInfo}: InfoProdutoProps) {
   return (
     <>
       <div className="min-w-screen min-h-screen bg-white-300 flex items-center overflow-hidden relative">
-        <div className="xsm:w-5/6 md:w-[90%] max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
-          <XCircle size={30} onClick={fecharInfo} color="#5A6973" className="absolute top-0 right-0 m-4 hover:cursor-pointer"/>
+        <div className="xsm:w-5/6 md:w-[90%] max-w-6xl rounded bg-white shadow-xl px-8 pt-8 pb-4 sm:pb-8 md:p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+          <XCircle size={30} onClick={fecharInfo} color="#5A6973" className="absolute top-0 right-0 m-1 md:m-4 hover:cursor-pointer"/>
           <div className="md:flex items-center -mx-10">
-            <div className="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+            <div className="w-full md:w-1/2 px-10 mb-5 md:mb-0">
               <div className="relative overflow-hidden">
                 <img
                   src={produto.foto}
@@ -44,16 +44,16 @@ function InfoProduto({produto, fecharInfo}: InfoProdutoProps) {
               </div>
             </div>
             <div className="w-full md:w-1/2 px-10">
-              <div className="mb-5">
-                <h1 className="font-bold uppercase text-5xl mb-5 xsm:text-xl md:text-2xl">
+              <div className="">
+                <h1 className="font-bold uppercase text-5xl mb-2 xsm:text-xl md:text-2xl">
                   {produto.nome}
                 </h1>
-                <p className="text-2xl xsm:text-sm md:text-base mb-10">{produto.descricao}</p>
-                <div className="mt-4">
+                <p className="text-2xl xsm:text-sm md:text-base mb-5 md:mb-10">{produto.descricao}</p>
+                <div className="mt-0 sm:mt-4">
                   <p className="text-xl xsm:text-base md:text-lg">Vendedor: {produto.usuario.nome}</p>
                 </div>
-                <div className="mt-4">
-                  <p className="text-lg xsm:text-base md:text-lg">Unidades em Estoque: {produto.quantidade}</p>
+                <div className="mt-2 md:mt-4">
+                  <p className="text-lg xsm:text-base md:text-lg">Em Estoque: {produto.quantidade}</p>
                 </div>
               </div>
               <div>
@@ -66,10 +66,10 @@ function InfoProduto({produto, fecharInfo}: InfoProdutoProps) {
                   </span>
                   {/* <span className="text-2xl leading-none align-baseline">.99</span> */}
                 </div>
-                <div className="inline-block align-bottom">
+                <div className="inline-block align-bottom w-full">
                   {(disponivel) ? (
                     <Link to="" onClick={handleClickAdicionarAoCarrinho}>
-                      <button className="bg-blue-500 opacity-75 hover:opacity-100 text-white rounded-full px-10 py-2 font-semibold">
+                      <button className="bg-blue-500 opacity-75 hover:opacity-100 text-white rounded-full px-5 md:px-10 py-2 font-semibold w-full">
                         <i className="mdi mdi-cart mx-2"/>
                         Adicionar ao carrinho
                       </button>

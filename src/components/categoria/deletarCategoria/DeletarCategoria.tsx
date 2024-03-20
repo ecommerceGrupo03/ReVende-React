@@ -47,7 +47,7 @@ function DeletarCategoria() {
   }, [id]);
 
   function retornar() {
-    navigate("/categorias");
+    navigate("/pageCategoria");
   }
 
   async function deletarCategoria() {

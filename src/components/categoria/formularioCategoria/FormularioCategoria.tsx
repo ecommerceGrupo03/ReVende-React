@@ -93,7 +93,7 @@ function FormularioCategoria() {
 	}
 
 	function retornar() {
-		navigate('/categorias');
+		navigate('/pageCategoria');
 	}
 
 	useEffect(() => {
